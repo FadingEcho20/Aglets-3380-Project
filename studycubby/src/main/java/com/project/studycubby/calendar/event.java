@@ -9,6 +9,12 @@ public class event
     private String name;
     private String description;
 
+
+    public event(String description)
+    {
+        this.description = description;
+    }
+
     public event(int day, int month, int year, int time, String name, String description)
     {
         this.day = day;

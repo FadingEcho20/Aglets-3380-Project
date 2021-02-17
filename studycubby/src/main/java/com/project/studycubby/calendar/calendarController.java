@@ -9,7 +9,10 @@ import java.util.*;
 @RequestMapping(path = "api/v1/calendar")
 public class calendarController 
 {
-
-    
+    @GetMapping
+    public String response()
+    {
+        return "Access Granted";
+    }
     
 }
