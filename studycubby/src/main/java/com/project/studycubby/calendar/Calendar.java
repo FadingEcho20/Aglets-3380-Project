@@ -1,12 +1,14 @@
 package com.project.studycubby.calendar;
 import java.util.*;
 
-public class Calendar
+public class Calendar implements calendarInterface
 {
+    
+    // implement a field for alerts
     /**
      * creates an entry to the calendar database with new id
      */
-    public void addEntry()
+    public void createEvent()
     {
 
     }
@@ -14,7 +16,7 @@ public class Calendar
     /**
      * deletes entry with object id: id
      */
-    public void deleteEntry()
+    public void deleteEvent()
     {
 
     }
@@ -22,8 +24,10 @@ public class Calendar
     /**
      * overwrites entry with object id: id
      */
-    public void editEntry()
+    public void editEvent()
     {
 
     }
+
+
 }
