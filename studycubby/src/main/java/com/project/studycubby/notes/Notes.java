@@ -6,21 +6,38 @@ public class Notes implements Notable{
 
     private String user;
     private String title;
-    private ArrayList<String> noteFiles;
+    private Note latestNote;
+    private ArrayList<Note> noteFiles = new ArrayList<>(
+        List.of(new Note("US History"), new Note("Chemistry"), new Note("Calculus"))
+    );
 
     public Notes(String user) {
         this.user = user;
     }
 
     public void createNote(String title) {
-        this.title = title;
-        noteFiles.add(title);
+        setTitle(title);
+        latestNote = new Note(this.title);
+        noteFiles.add(latestNote);
+        System.out.println("A new note named " + title + " has been created.");
+    }
+
+    public void createNote(String title, String label) {
+        setTitle(title);
+        latestNote = new Note(this.title, label);
+        noteFiles.add(latestNote);
         System.out.println("A new note named " + title + " has been created.");
     }
 
     public void editNote(String title) {
-        this.title = title;
+        setTitle(title);
+        latestNote = noteFiles.get(noteFiles.indexOf(new Note(this.title)));
         System.out.println("The note " + title + " is now being edited.");
+    }
+
+    public void deleteNote() {
+        this.title = getTitle();
+        noteFiles.remove(new Note(this.title));
     }
 
     public String getUser() {
@@ -39,7 +56,15 @@ public class Notes implements Notable{
         this.title = title;
     }
 
-    public ArrayList<String> getNoteFiles() {
+    public Note getLatestNote() {
+        return latestNote;
+    }
+
+    public void setLatestNote(String title) {
+        this.latestNote = noteFiles.get(noteFiles.size()-1);
+    }
+
+    public ArrayList<Note> getNoteFiles() {
         return noteFiles;
     }
 
