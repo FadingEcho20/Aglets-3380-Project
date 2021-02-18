@@ -9,20 +9,10 @@ import java.util.*;
 @RequestMapping(path = "api/v1/calendar")
 public class calendarController 
 {
-    // public ArrayList<Event> list = new ArrayList<Event>();
-
-    // Event event1 = new Event("Febuary 3, 2021");
-    // Event event2 = new Event("March 6, 2021");
-
-    // list.Add(event1);
-    // list.Add(event2);
-
-    // @GetMapping
-    // return list;
-
     @GetMapping
     public String responseString()
     {
-        return "Febuary 3, 2021";
+        Event event1 = new Event("Calendar component can return something");
+        return event1.getName();
     }
 }
