@@ -7,8 +7,7 @@ public class Tips{
     // for other methods. There can be a separate place where the Linked List can be stored but this is a current example
 
     public Tips(){
-        LinkedList<String> Tip
-            = new LinkedList<>(); 
+        LinkedList<String> Tip = new LinkedList<>(); 
 
     }
 // This method adds a node to the Tip linked List
