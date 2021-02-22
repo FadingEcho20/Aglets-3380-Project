@@ -7,9 +7,7 @@ public class Notes implements Notable{
     private String user;
     private String title;
     private Note latestNote;
-    private ArrayList<Note> noteFiles = new ArrayList<>(
-        List.of(new Note("US History"), new Note("Chemistry"), new Note("Calculus"))
-    );
+    private ArrayList<Note> noteFiles = new ArrayList<>();
 
     public Notes(String user) {
         this.user = user;
