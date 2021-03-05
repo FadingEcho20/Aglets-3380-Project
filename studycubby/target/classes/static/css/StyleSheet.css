@@ -1,0 +1,20 @@
+#Menu{
+    top: 0;
+    padding-top: 112px;
+    padding-bottom: 0;
+    height:100%;
+    width:220px;
+    background-color: rgb(8, 180, 100);
+    
+
+ }
+ #Body{
+     padding-left: 76%;
+     float: right;
+     border: 5px solid black;
+     display:block;
+     text-align: center;
+ }
+ #Body p{
+     text-align: center;
+ }

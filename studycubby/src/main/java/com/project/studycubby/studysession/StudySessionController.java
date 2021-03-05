@@ -15,9 +15,9 @@ public class StudySessionController {
 	// 	return "A study session has been created.";
 	// }
 
-	@RequestMapping(value = "/index")
+	@RequestMapping(value = "/Home Page example")
 	public String index() {
-		return "index";
+		return "Home Page example";
 	}
     
 }
