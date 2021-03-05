@@ -5,16 +5,31 @@
     height:100%;
     width:220px;
     background-color: rgb(8, 180, 100);
-    
+ }
+ #Menu div{
+     background-color: darkgreen;
+     border: 5px solid black;
+     margin-top:20px;
+     font-family: 'Times New Roman', Times, serif;
+     color: black;
+     
 
  }
+ #Menu div a{
+     font-size: large;
+     text-decoration: none;
+ }
+ 
  #Body{
      padding-left: 76%;
+     padding-right:30%;
      float: right;
-     border: 5px solid black;
+     /* border: 5px solid black; */
      display:block;
      text-align: center;
+     padding-bottom: 40%;
  }
+
  #Body p{
      text-align: center;
  }
