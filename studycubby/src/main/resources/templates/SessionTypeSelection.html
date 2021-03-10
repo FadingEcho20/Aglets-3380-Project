@@ -3,11 +3,11 @@
 <html>
 <head>
   <!--  <script src="C:\Users\Marseyas\Desktop\Test\Aglets-3380-Project\studycubby\src\main\java\com\project\studycubby"></script>-->
-   <link href="../static/css/StudySessionStyle.css" th:href="@{css/StudySessionStyle.css}" rel="stylesheet" media="screen">
+   <link href="../static/css/Button.css" th:href="@{css/Button.css}" rel="stylesheet" media="screen">
    <link href="../static/css/StyleSheet.css" th:href="@{css/StyleSheet.css}" rel="stylesheet" media="screen">
 	<title>Study Session Time</title>
 </head>
-<body style="background-color: rgb(13, 172, 119);">
+<body style="background-color: rgb(240, 213, 191);">
 
     <div id="Menu" style="position:fixed;">
         <p>Menu</p>
@@ -17,9 +17,15 @@
     
     </div>
 
-    <div id="Body">
-      <a href="DeepSessionTimes.html" class="button">Deep Session</a>
+    <p>Pick a Session Style!</p>
+
+    <div id="Mini Button" style = "position:absolute; left:800px; top:200px">
       <a href="MiniSessionTimes.html" class="button">Mini Session</a>
     </div>
+
+    <div id="Deep Button" style = "position:absolute; left:800px; top:400px">
+      <a href="DeepSessionTimes.html" class="button">Deep Session</a>
+    </div>
+
 </body>
 </html>
