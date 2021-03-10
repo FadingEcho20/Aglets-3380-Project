@@ -4,10 +4,10 @@
     padding-bottom: 0;
     height:100%;
     width:220px;
-    background-color: rgb(8, 180, 100);
+    background-color: rgb(48,134,156);
  }
  #Menu div{
-     background-color: darkgreen;
+     background-color: rgb(128,191,206);
      border: 5px solid black;
      margin-top:20px;
      font-family: 'Times New Roman', Times, serif;
