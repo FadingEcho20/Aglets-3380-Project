@@ -6,6 +6,7 @@ public class ParentSession {
 
     protected int sessionLength;
     protected int breakAmount;
+    protected int breakLength;
     protected ArrayList<String> subjects = new ArrayList<>();
     protected int blockLength;
 
@@ -25,10 +26,13 @@ public class ParentSession {
         switch(breakAmount) {
             case 1:
                 //user inputs 2 subjects
+                break;
             case 2:
                 //user inputs 3 subjects
+                break;
             case 3: 
                 //user inputs 4 subjects
+                break;
             default:
                 //user inputs 1 subject
         }
