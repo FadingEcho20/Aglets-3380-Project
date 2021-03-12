@@ -5,14 +5,14 @@
     padding-bottom: 0;
     height:100%;
     width:220px;
-    background-color: rgb(8, 180, 100);
+    background-color: rgb(48,134,156);
     
 
  }
  .header {
   padding: 5px;
   text-align: center;
-  background: rgb(192,192,192);
+  background: rgb(240, 213, 191);
   color: black;
   font-size: 10px;
 }
@@ -48,6 +48,7 @@ body {
     height: 500%;
     font: 1em arial;
     color: rgba(50, 82, 50, 1.0);
+    float: right;
 }
 #area:focus {
     color: rgba(50, 82, 50, 1.0);
