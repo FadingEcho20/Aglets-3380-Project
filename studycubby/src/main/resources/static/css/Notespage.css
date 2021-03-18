@@ -1,4 +1,24 @@
-/* this folder is for css files */
+.header {
+  padding: 5px;
+  text-align: center;
+  background: rgb(240, 213, 191);
+  color: black;
+  font-size: 10px;
+}
+
+#header {
+    background: #325232;
+    color: white;
+    font: Times New Roman;
+    font-size: 15px;
+    padding: 15px;
+}
+
+#header > #name {
+    font-family: Times New Roman;
+    display: inline-block;
+}
+
 #Menu{
     top: 0;
     padding-top: 112px;
@@ -9,27 +29,11 @@
     
 
  }
- .header {
-  padding: 5px;
-  text-align: center;
-  background: rgb(240, 213, 191);
-  color: black;
-  font-size: 10px;
-}
+ 
 body {
     margin: 0px;
 }
-#header {
-    background: #325232;
-    color: white;
-    font: Times New Roman;
-    font-size: 15px;
-    padding: 15px;
-}
-#header > #name {
-    font-family: Arial, Sans-serif;
-    display: inline-block;
-}
+
 #menu a, #menubutton a {
     text-decoration: none;
     color: white;
@@ -37,16 +41,19 @@ body {
     font-family: Arial, Sans-serif;
     font-size: 15px;
 }
+
 .clear {
     clear: both;
 }
+
 #container {
     margin: 20px 20px 20px 20px;
 }
+
 #area {
     width: 500%;
     height: 500%;
-    font: 1em arial;
+    font: Times New Roman;
     color: rgba(50, 82, 50, 1.0);
     float: right;
 }
