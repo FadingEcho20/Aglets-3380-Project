@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<!-- <html xmlns:th="http://www.thymeleaf.org"> -->
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <!--  <script src="C:\Users\Marseyas\Desktop\Test\Aglets-3380-Project\studycubby\src\main\java\com\project\studycubby"></script>-->
+
    <link href="../static/css/Button.css" th:href="@{css/Button.css}" rel="stylesheet" media="screen">
    <link href="../static/css/StyleSheet.css" th:href="@{css/StyleSheet.css}" rel="stylesheet" media="screen">
 	<title>Study Session</title>
@@ -11,9 +10,9 @@
 
     <div id="Menu" style="position:fixed;">
         <p>Menu</p>
-        <div><a href="CalendarPage.html">Calendar</a></div>
-        <div><a href="Notespage.html">Notes</a></div>
-        <div><a href="Home Page example.html">Home</a></div>
+        <div><a th:href="@{CalendarPage}">Calendar</a></div>
+        <div><a th:href="@{Notespage}">Notes</a></div>
+        <div><a th:href="@{Home Page example}">Home</a></div>
     
     </div>
 

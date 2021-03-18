@@ -1,8 +1,7 @@
-<!DOCTYPE html>
-<!-- <html xmlns:th="http://www.thymeleaf.org"> -->
-<html>
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <!--  <script src="C:\Users\Marseyas\Desktop\Test\Aglets-3380-Project\studycubby\src\main\java\com\project\studycubby"></script>-->
+
    <link href="../static/css/StyleSheet.css" th:href="@{css/StyleSheet.css}" rel="stylesheet" media="screen">
    <link href="../static/css/Button.css" th:href="@{css/studysession.css}" rel="stylesheet" media="screen">
 	<title>Study Cubby</title>
@@ -11,22 +10,21 @@
 
     <div id="Menu" style="position:fixed;">
         <p>Menu</p>
-        <div><a href="CalendarPage.html">Calendar</a></div>
-        <div><a href="Notespage.html">Notes</a></div>
-        <div><a href="Home Page example.html">Home</a></div>
+        <div><a th:href="@{CalendarPage}">Calendar</a></div>
+        <div><a th:href="@{Notespage}">Notes</a></div>
+        <div><a th:href="@{Home Page example}">Home</a></div>
     
     </div>
 
     <div id="Body">
      
-        <img src="../static/images/StudyCubbyLogo.png" alt="Study Session">
-      <!-- <form>
-        <button type="button" onclick="alert('Hello World!')">Start Session</button>
-      </form> -->
+        <img src="../static/images/StudyCubbyLogo.png" alt="Study Session"
+          th:src="@{images/StudyCubbyLogo.png}"/>
+
     </div>
 
     <div id="Button" style = "position:absolute; left:800px; top:300px">
-      <a href="SessionTypeSelection.html" class="button">Start Session</a>
+      <a th:href="@{SessionTypeSelection}" class="button">Start Session</a>
     </div>
 
 </body>
