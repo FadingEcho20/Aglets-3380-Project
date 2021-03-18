@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<html>
     <style> 
         .comment {
             resize: none;
@@ -16,10 +17,11 @@
 <body style="background-color: rgb(240, 213, 191);">
     
     <div id="Menu" style="position:fixed;">
-        <p>Menu</p>
-        <div><a th:href="@{CalendarPage}">Calendar</a></div>
-        <div><a th:href="@{Notespage}">Notes</a></div>
-        <div><a th:href="@{Home Page example}">Home</a></div>
+        
+       <p>Menu</p>
+        <div><a href="CalendarPage.html">Calendar</a></div>
+        <div><a href="Notespage.html">Notes</a></div>
+        <div><a href="Home Page example.html">Home Page</a></div>
     
     </div>
     
@@ -30,17 +32,43 @@
     <div id="Body">
         
         <p></p>
-        <form>
+        
             
-            <div style="text-align: right;  padding-right: 5px" > 
-            <textarea class= "comment" name="Notes" rows="30" cols="80">
+             <div style="text-align: left;  padding-right: 5px" > 
+            <textarea 
+                class="comment" id="note" name ="note" placeholder ="Write Notes Here" rows="30" cols="80" >
         
             </textarea>
-        
-            <input type="button" value ="Save" />
+            <input type="text" id="notes" placeholder ="Subject" />     
+            <input type="button" id="bt" value ="Save" onclick="save()" />
             
             </div>
-        </form>
+            
+        
     </div>
+  
 </body>
+<script>
+    let save = () => {
+        var textFile = null, makeTextFile = function (text) {
+            var data = new Blob([text], {type: 'text/plain'});
+                if(textFile !== null) {
+                    window.URL.revokeObjectURL(textFile);
+                }
+                textFile = window.URL.createObjectURL(data);
+                
+                return textFile;
+        };
+         var create = document.getElementById('create'),
+         textvox = document.getElementById('textbox');
+         
+         create.addEventListener('click', save () {
+             var link = document.getElementByID('downloadlink');
+             link.href = makeTextFile(textbox.value);
+             link.style.display = 'block';
+         }, false); 
+         
+    } ();
+</script>
+    
 </html>
