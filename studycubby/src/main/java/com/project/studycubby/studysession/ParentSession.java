@@ -2,7 +2,8 @@ package com.project.studycubby.studysession;
 
 import java.util.*;
 
-public class ParentSession {
+public class ParentSession 
+{
 
     protected int sessionLength;
     protected int breakAmount;
@@ -10,29 +11,37 @@ public class ParentSession {
     protected ArrayList<String> subjects = new ArrayList<>();
     protected int blockLength;
 
-    protected void timer() {
+    protected void timer() 
+    {
         //a timer will be implemented here
     }
 
-    public void startSession() {
+    public void startSession() 
+    {
         //timer will count down from blockLength time (minutes) with breakAmount number of breaks. After each break another blockLength timer will count down. When there are no more breaks, call endSession.
     }
 
-    public void endSession() {
+    public void endSession() 
+    {
         //ends study session
     }
 
-    public void setSubjects() {
-        switch(breakAmount) {
+    public void setSubjects() 
+    {
+        switch(breakAmount) 
+        {
             case 1:
                 //user inputs 2 subjects
                 break;
+                
             case 2:
                 //user inputs 3 subjects
                 break;
+                
             case 3: 
                 //user inputs 4 subjects
                 break;
+                
             default:
                 //user inputs 1 subject
         }
