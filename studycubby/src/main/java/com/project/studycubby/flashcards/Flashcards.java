@@ -14,19 +14,23 @@ public class Flashcards implements FlashStart
         this.subjectNumber = subjectNumber;
     }
 
-    public String getSubjectName() {
+    public String getSubjectName() 
+    {
         return subjectName;
     }
 
-    public void setSubjectName(String subjectName) {
+    public void setSubjectName(String subjectName) 
+    {
         this.subjectName = subjectName;
     }
 
-    public String getSubjectNumber() {
+    public String getSubjectNumber() 
+    {
         return subjectNumber;
     }
 
-    public void setSubjectNumber(String subjectNumber) {
+    public void setSubjectNumber(String subjectNumber) 
+    {
         this.subjectNumber = subjectNumber;
     }
     public void editFcards()

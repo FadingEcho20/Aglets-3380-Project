@@ -7,8 +7,11 @@ import java.util.List;
 @Service
 public class FlashcardService
 {
-    public List<Flashcards> getFlashcards(){
-        return List.of(
+    
+    public List<Flashcards> getFlashcards()
+    {
+        return List.of
+        (
                 new Flashcards("Biology",
                         "101"),
                 new Flashcards("Biology",
@@ -24,4 +27,3 @@ public class FlashcardService
         );
     }
 }
-
