@@ -3,16 +3,21 @@ package com.project.studycubby.studysession;
 import java.util.*;
 import java.io.*;
 
-//ParentSession initializes the timer, the startSession function and the endSession function in order to send users to a study session for a specified period of time.
+/**
+ * ParentSession initializes the timer, the startSession function and the endSession function in order to 
+ * send users to a study session for a specified period of time.
+**/
 
-public class ParentSession 
+public class ParentSession implements StudySession
 {
-    static Timer timer;
+
     protected int sessionLength;
     protected int breakAmount;
     protected int blockLength;
+    protected int breakLength;
+    private Timer timer;
     
-    public ParentSession(int seconds)
+    public void startTimer(int seconds)
     {
         timer = new Timer();
         timer.schedule(new Run(), seconds*1000);
@@ -28,44 +33,55 @@ public class ParentSession
 
     public void startSession() 
     {
-        //timer will count down from blockLength time (minutes) with breakAmount number of breaks. After each break another blockLength timer will count down. When there are no more breaks, call one more Session and then endSession.
-        sessionLength = breakAmount + 1;
-        
-        if(sessionLength != 0)
+
+        //converting breakLength into seconds
+        breakLength *= 60;
+
+        //converting blockLength into seconds
+        blockLength *= 60;
+
+        int blockAmount = breakAmount + 1;
+
+        /**
+         * timer will count down from blockLength time (minutes) with breakAmount number of breaks. After each break another blockLength 
+         * timer will count down. When there are no more breaks, call one more Session and then endSession.
+        **/
+
+        if(blockAmount != 0)
         {
             System.out.println("This session has started!");
             
             while(breakAmount != 0)
             {
-                for(int i = 0; i <= breakAmount; i++)
+                for(int i = 0; i < breakAmount; i++, breakAmount--)
                 {
                     System.out.println("Time to work.");
-                    
-                    //1800 seconds is equal to 30 minutes
-                    new ParentSession(1800);
+                
+                    startTimer(blockLength);
                     
                     System.out.println("Good work!");
                     System.out.println("Time for a break!");
-                    System.out.println("You have 5 minutes.");
+                    System.out.println("You have " + breakLength/60 + " minutes.");
                         
                     //300 seconds is equal to 5 minutes
-                    new ParentSession(300);
+                    startTimer(breakLength);
                     
                     System.out.println("The break is over");
                     
-                    i++;
-                    sessionLength--;
+                    blockAmount--;
                 }
             }
+
             if(breakAmount == 0)
             {
                 System.out.println("Time to work.");
                     
-                new ParentSession(1800);
+                startTimer(blockLength);
                     
                 System.out.println("Good work!");
+                System.out.println("You're all done.");
                 
-                sessionLength--;
+                blockAmount--;
             }
         }
         else

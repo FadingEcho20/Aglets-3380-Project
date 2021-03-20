@@ -1,6 +1,6 @@
 package com.project.studycubby.studysession;
 
-public class DeepSession extends ParentSession implements StudySession
+public class DeepSession extends ParentSession
 {
 
     public DeepSession(int sessionLength) 
@@ -14,6 +14,7 @@ public class DeepSession extends ParentSession implements StudySession
                 breakAmount = 0;
                 blockLength = 50;
                 System.out.println("A deep session has started w/ 50 minutes remaining");
+                startSession();
                 break;
                 
             case 110: 
@@ -21,6 +22,7 @@ public class DeepSession extends ParentSession implements StudySession
                 breakAmount = 1;
                 blockLength = 50;
                 System.out.println("A deep session has started w/ 110 minutes remaining");
+                startSession();
                 break;
                 
             case 170:
@@ -28,6 +30,7 @@ public class DeepSession extends ParentSession implements StudySession
                 breakAmount = 2;
                 blockLength = 50;
                 System.out.println("A deep session has started w/ 170 minutes remaining");
+                startSession();
                 break;
                 
             case 230:
@@ -35,6 +38,7 @@ public class DeepSession extends ParentSession implements StudySession
             breakAmount = 3;
             blockLength = 50;
             System.out.println("A deep session has started w/ 230 minutes remaining");
+            startSession();
             break;
             
             default:

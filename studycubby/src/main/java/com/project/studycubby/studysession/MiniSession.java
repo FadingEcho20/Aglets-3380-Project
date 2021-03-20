@@ -1,6 +1,6 @@
 package com.project.studycubby.studysession;
 
-public class MiniSession extends ParentSession implements StudySession
+public class MiniSession extends ParentSession
 {
 
     public MiniSession(int sessionLength) 
@@ -14,6 +14,7 @@ public class MiniSession extends ParentSession implements StudySession
                 breakAmount = 0;
                 blockLength = 10;
                 System.out.println("A mini session has started w/ 10 minutes remaining");
+                startSession();
                 break;
                 
             case 20: 
@@ -21,6 +22,7 @@ public class MiniSession extends ParentSession implements StudySession
                 breakAmount = 0;
                 blockLength = 20;
                 System.out.println("A mini session has started w/ 20 minutes remaining");
+                startSession();
                 break;
                 
             case 45:
@@ -28,6 +30,7 @@ public class MiniSession extends ParentSession implements StudySession
                 breakAmount = 1;
                 blockLength = 20;
                 System.out.println("A mini session has started w/ 45 minutes remaining");
+                startSession();
                 break;
                 
             default:
