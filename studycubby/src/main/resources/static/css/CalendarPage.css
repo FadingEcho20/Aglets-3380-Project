@@ -2,24 +2,29 @@
   box-sizing: border-box;
 }
 
-body {
+body 
+{
   background-color: #fafafa;
 }
 
-.container {
+.container 
+{
   margin: 100px auto;
   width: 809px;
 }
 
-.light {
+.light 
+{
   background-color: #fff;
 }
 
-.dark {
+.dark 
+{
   margin-left: 65px;
 }
 
-.calendar {
+.calendar 
+{
   width: 370px;
   box-shadow: 0px 0px 35px -16px rgba(0, 0, 0, 0.75);
   font-family: 'Roboto', sans-serif;
@@ -28,20 +33,24 @@ body {
   display: inline-block;
 }
 
-.calendar_header {
+.calendar_header 
+{
   border-bottom: 2px solid rgba(0, 0, 0, 0.08);
 }
 
-.header_copy {
+.header_copy 
+{
   color: #A39D9E;
   font-size: 20px;
 }
 
-.calendar_plan {
+.calendar_plan 
+{
   margin: 20px 0 40px;
 }
 
-.cl_plan {
+.cl_plan 
+{
   width: 100%;
   height: 140px;
   background-image: linear-gradient(-222deg, #FF8494, #ffa9b7);
@@ -52,13 +61,15 @@ body {
 
 .cl_title {}
 
-.cl_copy {
+.cl_copy 
+{
   font-size: 20px;
   margin: 20px 0;
   display: inline-block;
 }
 
-.cl_add {
+.cl_add 
+{
   display: inline-block;
   width: 40px;
   height: 40px;
@@ -70,15 +81,18 @@ body {
   padding: 11px 13px;
 }
 
-.calendar_events {
+.calendar_events 
+{
   color: #A39D9E;
 }
 
-.ce_title {
+.ce_title 
+{
   font-size: 14px;
 }
 
-.event_item {
+.event_item 
+{
   margin: 18px 0;
   padding: 5px;
   cursor: pointer;
@@ -86,7 +100,8 @@ body {
   box-shadow: 0px 0px 52px -18px rgba(0, 0, 0, 0.75)
 }
 
-.ei_Dot {
+.ei_Dot 
+{
   background-color: #fff;
 }
 
@@ -100,7 +115,8 @@ body {
   display: inline-block;
 }
 
-.ei_Dot {
+.ei_Dot 
+{
   border-radius: 50%;
   width: 10px;
   height: 10px;
@@ -108,27 +124,32 @@ body {
   box-shadow: 0px 0px 52px -18px rgba(0, 0, 0, 0.75);
 }
 
-.dot_active {
+.dot_active 
+{
   background-color: #FF8494;
 }
 
-.ei_Title {
+.ei_Title 
+{
   margin-left: 10px;
   color: #363b41;
 }
 
-.ei_Copy {
+.ei_Copy 
+{
   font-size: 12px;
   margin-left: 27px;
 }
 
-.dark {
+.dark 
+{
   background-image: linear-gradient(-222deg, #646464, #454545);
   color: #fff
 }
 
 .header_title,
 .ei_Title,
-.ce_title {
+.ce_title 
+{
   color: #fff;
 }
