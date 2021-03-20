@@ -1,6 +1,6 @@
 #Menu{
     top: 0;
-    padding-top: 112px;
+    padding-top: 1px;
     padding-bottom: 0;
     height:100%;
     width:220px;
@@ -9,25 +9,34 @@
  #Menu div{
      background-color: rgb(128,191,206);
      border: 5px solid black;
-     margin-top:20px;
+     margin-top:10%;
      font-family: 'Times New Roman', Times, serif;
      color: black;
-     
 
  }
+ 
  #Menu div a{
      font-size: large;
+     margin: 55px;
      text-decoration: none;
+    
+     
+ }
+ 
+ div p {
+    font-size: 30px;
+    margin: 55px;
+    border-width: 10px;
  }
  
  #Body{
-     padding-left: 76%;
-     padding-right:30%;
+     padding-left: 50%;
+     padding-right:20%;
      float: right;
      /* border: 5px solid black; */
      display:block;
      text-align: center;
-     padding-bottom: 40%;
+     padding-bottom: 30%;
  }
 
  #Body p{

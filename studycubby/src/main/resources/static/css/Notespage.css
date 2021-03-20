@@ -1,15 +1,42 @@
+
 .header {
   padding: 5px;
   text-align: center;
   background: rgb(240, 213, 191);
   color: black;
-  font-size: 10px;
+  font-size: 15px;
+}
+
+/*div h1 {
+    border-width:5px;  
+    border-top-style:dotted;
+}*/
+
+div p {
+    font-size: 30px;
+    margin: 55px;
+    border-width: 30px;
+}
+
+div a {
+    font-size: 50px;
+    margin: 55px;
+    border-width: 30px;
+    
+}
+
+#Menu div {
+    margin-top: 10%;
+}
+
+div Body {
+    float: right;
 }
 
 #header {
     background: #325232;
     color: white;
-    font: Times New Roman;
+    font: Lucida Sans;
     font-size: 15px;
     padding: 15px;
 }
@@ -21,13 +48,11 @@
 
 #Menu{
     top: 0;
-    padding-top: 112px;
+    padding-top: 1px;
     padding-bottom: 0;
     height:100%;
     width:220px;
     background-color: rgb(48,134,156);
-    
-
  }
  
 body {
@@ -57,11 +82,13 @@ body {
     color: rgba(50, 82, 50, 1.0);
     float: right;
 }
+
 #area:focus {
     color: rgba(50, 82, 50, 1.0);
     border: 2px solid #96c56f;
     box-shadow: 0px 1px 1px #888888;
 }
+
 .footer {
     width: 100%;
     background-color: #325232;
@@ -69,6 +96,7 @@ body {
     position: fixed;
     bottom: 0px;
 }
+
 .footer > p {
     margin: 8px;
     color: white;
