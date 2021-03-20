@@ -7,11 +7,14 @@ import java.util.*;
 
 @RestController
 @RequestMapping(path = "api/v1/notes")
-public class NotesController {
+public class NotesController 
+{
 
     @GetMapping
-	public List<Notes> getUserNotes() {
-		return List.of(
+	public List<Notes> getUserNotes() 
+        {
+		return List.of
+                (
 			new Notes("LaSean")
 		);
 	}
