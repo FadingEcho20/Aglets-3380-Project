@@ -6,13 +6,43 @@
             resize: none;
         }
     </style>
+    <title>Notes</title>
 <head>
     
     <script src="C:\Users\Stephanie\Desktop\Test\Aglets-3380-Project\studycubby\src\main\java\com\project\studycubby"></script>
     <link href="../static/css/StyleSheet.css" th:href="@{css/StyleSheet.css}" rel="stylesheet" media="screen">
     <link href="../static/css/Notespage.css" th:href="@{css/Notespage.css}" rel="stylesheet" media="screen">
-	
-    <title>Study Cubby</title>
+	<title>Study Cubby</title>
+    <script lang="javascript">
+       
+        let saveFile = () => {
+    	
+        // Get the data from each element on the form.
+    	
+        var msg = document.getElementById('note');
+        
+        // This variable stores all the data.
+        let data =  msg.value;
+        
+        // Convert the text to BLOB.
+        const textToBLOB = new Blob([data], { type: 'text/plain' });
+        const sFileName = 'formData.txt';	   // The file to save the data.
+
+        let newLink = document.createElement("a");
+        newLink.download = sFileName;
+
+        if (window.webkitURL != null) {
+            newLink.href = window.webkitURL.createObjectURL(textToBLOB);
+        }
+        else {
+            newLink.href = window.URL.createObjectURL(textToBLOB);
+            newLink.style.display = "none";
+            document.body.appendChild(newLink);
+        }
+
+        newLink.click(); 
+    }
+    </script>
 </head>
 
 <body style="background-color: rgb(240, 213, 191);">
@@ -22,55 +52,31 @@
        <p>Menu</p>
         <div><a href="CalendarPage.html">Calendar</a></div>
         <div><a href="Notespage.html">Notes</a></div>
-        <div><a href="Home Page example.html">Home</a></div>
+        <div><a href="Home Page example.html">Home Page</a></div>
     
     </div>
     
     <div class="header">
-       <h1>NOTES </h1>  
-<!--       style="border:white; border-width:5px;  
-           border-top-style:solid; border-bottom-style: solid"-->
+       <h1>Notes</h1> 
     </div>
  
     <div id="Body">
         
         <p></p>
+        
             
-             <div style="text-align: right;  padding-right: 5px" > 
+             <div style="text-align: left;  padding-right: 5px" > 
             <textarea 
-                class="comment" id="note" name ="note" placeholder ="Write Notes Here" 
-                rows="25" cols="80" >
+                class="comment" id="note" name ="note" placeholder ="Write Notes Here" rows="30" cols="80" >
         
             </textarea>
-            <input type="text" id="notes" placeholder ="Subject" />     
-            <input type="button" id="bt" value ="Save" onclick="save()" />
+            <input type="text" id="downloadlink" placeholder ="Subject" />     
+            <input type="button" id="bt" value ="Save" onclick="saveFile()" />
             
             </div>
+            
         
     </div>
   
 </body>
-<script>
-    let save = () => {
-        var textFile = null, makeTextFile = function (text) {
-            var data = new Blob([text], {type: 'text/plain'});
-                if(textFile !== null) {
-                    window.URL.revokeObjectURL(textFile);
-                }
-                textFile = window.URL.createObjectURL(data);
-                
-                return textFile;
-        };
-         var create = document.getElementById('create'),
-         textvox = document.getElementById('textbox');
-         
-         create.addEventListener('click', save () {
-             var link = document.getElementByID('downloadlink');
-             link.href = makeTextFile(textbox.value);
-             link.style.display = 'block';
-         }, false); 
-         
-    } ();
-</script>
-    
 </html>
