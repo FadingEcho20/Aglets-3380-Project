@@ -1,3 +1,6 @@
+/**
+ * not sure if this class will be needed at all. Unless a database is used, this class probably only complicates things. 
+ */
 package com.project.studycubby.calendar;
 
 public class Event 
