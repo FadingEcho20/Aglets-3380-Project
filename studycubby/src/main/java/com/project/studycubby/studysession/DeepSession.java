@@ -3,6 +3,10 @@ package com.project.studycubby.studysession;
 public class DeepSession extends ParentSession
 {
 
+    /*The constructor for a deep study session. Creates a DeepSession object with different method variable values 
+     * depending on the length of the session. Calls the startSession method to begin the session.
+     * Developed by: LaSean S.
+    */
     public DeepSession(int sessionLength) 
     {
         breakLength = 10;

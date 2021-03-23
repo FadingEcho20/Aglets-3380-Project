@@ -3,6 +3,11 @@ package com.project.studycubby.studysession;
 public class MiniSession extends ParentSession
 {
 
+    /*The constructor for a mini study session. Creates a iniSession object with different method variable values 
+     * depending on the length of the session. Calls the startSession method to begin the session.
+     * Developed by: LaSean S.
+    */
+
     public MiniSession(int sessionLength) 
     {
         breakLength = 5;
