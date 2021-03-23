@@ -1,10 +1,7 @@
 package com.project.studycubby.studysession;
 
-import java.util.*;
-import java.io.*;
-
 /**
- * ParentSession initializes the timer, the startSession function and the endSession function in order to 
+ * ParentSession initializes the startSession function and the endSession function in order to 
  * send users to a study session for a specified period of time.
 **/
 
@@ -15,22 +12,10 @@ public class ParentSession implements StudySession
     protected int breakAmount;
     protected int blockLength;
     protected int breakLength;
-    private Timer timer;
-    
-    public void startTimer(int seconds)
-    {
-        timer = new Timer();
-        timer.schedule(new Run(), seconds*1000);
-    }
-    
-    public class Run extends TimerTask
-    {
-        public void run()
-        {
-            timer.cancel();
-        }
-    }
 
+
+    //A method that will start the study session, including all breaks, and then make a call to end the session
+    //Developed by: Jayme E.
     public void startSession() 
     {
 
@@ -57,14 +42,13 @@ public class ParentSession implements StudySession
                 {
                     System.out.println("Time to work.");
                 
-                    startTimer(blockLength);
+                    new StudySessionTimer(blockLength);
                     
                     System.out.println("Good work!");
                     System.out.println("Time for a break!");
                     System.out.println("You have " + breakLength/60 + " minutes.");
                         
-                    //300 seconds is equal to 5 minutes
-                    startTimer(breakLength);
+                    new StudySessionTimer(breakLength);
                     
                     System.out.println("The break is over");
                     
@@ -76,7 +60,7 @@ public class ParentSession implements StudySession
             {
                 System.out.println("Time to work.");
                     
-                startTimer(blockLength);
+                new StudySessionTimer(blockLength);
                     
                 System.out.println("Good work!");
                 System.out.println("You're all done.");
@@ -90,6 +74,7 @@ public class ParentSession implements StudySession
         }
     }
 
+    //A method to signal the end of the study session
     public void endSession() 
     {
         //ends study session
