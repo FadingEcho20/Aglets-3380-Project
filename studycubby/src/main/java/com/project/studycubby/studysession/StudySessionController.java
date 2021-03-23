@@ -1,19 +1,21 @@
 package com.project.studycubby.studysession;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.ui.Model;
+import java.io.*;
 
 @Controller
 public class StudySessionController {
 
 	static final String SESSIONSTART = "SessionStart";
+	//static final String DISPLAYTIPS = "DisplayTips";
 
 	@RequestMapping("/DeepSessionTimes")
 	public String deepSessionTimeSelection() {
 		return "DeepSessionTimes";
 	}
-
 	
 	@RequestMapping("/MiniSessionTimes")
 	public String miniSessionTimeSelection() {
@@ -25,9 +27,14 @@ public class StudySessionController {
 		return SESSIONSTART;
 	}
 
-	@RequestMapping("/SessionStart-10")
-	public String startSession10() {
+	@RequestMapping(value="/SessionStart-10", method=RequestMethod.GET)
+	public String startSession10(Model model) throws IOException {
+
 		new MiniSession(10);
+
+		Tips tips = new Tips();
+		model.addAttribute("tips", tips);
+
 		return SESSIONSTART;
 	}
 
