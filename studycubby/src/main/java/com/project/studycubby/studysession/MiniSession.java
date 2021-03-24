@@ -10,14 +10,14 @@ public class MiniSession extends ParentSession
 
     public MiniSession(int sessionLength) 
     {
-        breakLength = 5;
+        breakLength = 5*60;
         
         switch(sessionLength) 
         {
             case 10:
                 this.sessionLength = 10;
                 breakAmount = 0;
-                blockLength = 10;
+                blockLength = 10*60;
                 System.out.println("A mini session has started w/ 10 minutes remaining");
                 startSession();
                 break;
@@ -25,7 +25,7 @@ public class MiniSession extends ParentSession
             case 20: 
                 this.sessionLength = 20;
                 breakAmount = 0;
-                blockLength = 20;
+                blockLength = 20*60;
                 System.out.println("A mini session has started w/ 20 minutes remaining");
                 startSession();
                 break;
@@ -33,7 +33,7 @@ public class MiniSession extends ParentSession
             case 45:
                 this.sessionLength = 45;
                 breakAmount = 1;
-                blockLength = 20;
+                blockLength = 20*60;
                 System.out.println("A mini session has started w/ 45 minutes remaining");
                 startSession();
                 break;
