@@ -1,5 +1,6 @@
-
-.header {
+/* Formatting of the header with the title of Notes from the HTML */
+.header 
+{
   padding: 5px;
   text-align: center;
   background: rgb(240, 213, 191);
@@ -7,33 +8,31 @@
   font-size: 15px;
 }
 
-/*div h1 {
-    border-width:5px;  
-    border-top-style:dotted;
-}*/
-
-div p {
-    font-size: 30px;
-    margin: 55px;
-    border-width: 30px;
-}
-
-div a {
+/* Formatting the calender, notes, and home links */
+div a 
+{
     font-size: 50px;
     margin: 55px;
     border-width: 30px;
     
 }
 
-#Menu div {
+/* Changes how far away the whole menu is 
+from the top of the page*/
+#Menu div 
+{
     margin-top: 10%;
 }
 
-div Body {
+/* This moves the text to the right so it is not 
+ behind the menu and is more even */
+div Body 
+{
     float: right;
 }
 
-#header {
+#header 
+{
     background: #325232;
     color: white;
     font: Lucida Sans;
@@ -41,12 +40,16 @@ div Body {
     padding: 15px;
 }
 
-#header > #name {
+#header > #name 
+{
     font-family: Times New Roman;
     display: inline-block;
 }
 
-#Menu{
+/*  This helps format the blue menu background so it 
+    looks like a seperate item  */
+#Menu
+{
     top: 0;
     padding-top: 1px;
     padding-bottom: 0;
@@ -55,11 +58,13 @@ div Body {
     background-color: rgb(48,134,156);
  }
  
-body {
+body 
+{
     margin: 0px;
 }
 
-#menu a, #menubutton a {
+#menu a, #menubutton a 
+{
     text-decoration: none;
     color: white;
     text-transform: uppercase;
@@ -67,15 +72,19 @@ body {
     font-size: 15px;
 }
 
-.clear {
+.clear 
+{
     clear: both;
 }
 
-#container {
+#container 
+{
     margin: 20px 20px 20px 20px;
 }
 
-#area {
+/*  This establishes the overall size of the html page and the background */
+#area 
+{
     width: 500%;
     height: 500%;
     font: Times New Roman;
@@ -83,13 +92,15 @@ body {
     float: right;
 }
 
-#area:focus {
+#area:focus 
+{
     color: rgba(50, 82, 50, 1.0);
     border: 2px solid #96c56f;
     box-shadow: 0px 1px 1px #888888;
 }
 
-.footer {
+.footer 
+{
     width: 100%;
     background-color: #325232;
     height: 32px;
@@ -97,7 +108,8 @@ body {
     bottom: 0px;
 }
 
-.footer > p {
+.footer > p 
+{
     margin: 8px;
     color: white;
     font: 14px arial;
