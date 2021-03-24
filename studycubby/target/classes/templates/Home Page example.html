@@ -1,24 +1,31 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<html>
 <head>
-    <script src="C:\Users\Marseyas\Desktop\Test\Aglets-3380-Project\studycubby\src\main\java\com\project\studycubby"></script>
-    <link href="../static/css/StyleSheet.css" th:href="@{css/studysession.css}" rel="stylesheet" media="screen">
+
+   <link href="../static/css/StyleSheet.css" th:href="@{css/StyleSheet.css}" rel="stylesheet" media="screen">
+   <link href="../static/css/Button.css" th:href="@{css/Button.css}" rel="stylesheet" media="screen">
 	<title>Study Cubby</title>
 </head>
-<body style="background-color: rgb(13, 172, 119);">
+<body style="background-color: rgb(240, 213, 191);">
 
     <div id="Menu" style="position:fixed;">
         <p>Menu</p>
-        <div><a href="">Calendar</a></div>
-        <div><a href="">Flashcards</a></div>
-        <div><a href="">Notes</a></div>
-        <div><a href="">Study Session</a></div>
+        <div><a th:href="@{CalendarPage}">Calendar</a></div>
+        <div><a th:href="@{Notespage}">Notes</a></div>
+        <div><a th:href="@{Home Page example}">Home</a></div>
     
     </div>
 
     <div id="Body">
-        <p>Study Session Stuff</p>
+     
+        <img src="../static/images/StudyCubbyLogo.png" alt="Study Session"
+          th:src="@{images/StudyCubbyLogo.png}"/>
+
     </div>
+
+    <div style = "position:absolute; left:800px; top:300px">
+      <a th:href="@{SessionTypeSelection}" class="button">Start Session</a>
+    </div>
+
 </body>
 </html>
