@@ -11,10 +11,15 @@
 package com.project.studycubby.calendar;
 
 import java.io.*;
+import java.io.FileWriter;
 import java.util.*;
 
 public class Calendar implements calendarInterface
 {
+
+    public Calendar()
+    {
+    }
     /**
      * This method  will receive the details of an event, then scan the events list to find out where to put it.
      * It will then make a temporary file with all of the previously written events and insert the new event into the list.
@@ -31,33 +36,71 @@ public class Calendar implements calendarInterface
     public void createEvent(String date, int time, String name, String desc) throws FileNotFoundException
     {
         //create file stream from Events.txt
-        File Events = new File("E:\\Aglets\\Events.txt");
+        File Events = new File("D:\\Aglets\\Events.txt");
         Scanner reader = new Scanner(Events);
 
         //create file stream from tmpList.txt
-        File tmpList = new File("E:\\Aglets\\tmpList.txt");
+        // File tmpList = new File("D:\\Aglets\\tmpList.txt");
 
-        //compare name loop to find insert location
+        //compare date loop to find insert location - if date is same, compare time
         reader.nextLine();
-        reader.next();
-        reader.next();
 
-        String curName = reader.next();
-        int lineNum = 1;
+        String curDate = reader.next();
+        System.out.println("the first curDate = " + curDate);
+        int lineNum = 2;
 
-        while(curName.compareTo(name) < 1)
+        while(reader.hasNext())
         {
-            lineNum ++;
+            if(curDate.compareTo(date) < 0)
+            {
+                lineNum ++;
+                reader.nextLine();
+                curDate = reader.next();
+                System.out.println("curDate = " + curDate); 
+            }
+            else if(curDate.compareTo(date) > 0)
+            {
+                break;
+            }
+            else
+            {
+                if(reader.nextInt() > time)
+                {
+                    break;
+                }
 
-            reader.nextLine();
-            reader.next();
-            reader.next();
-
-            curName = reader.next();
+                lineNum++;
+            }
         }
 
         //copy from original list to tmpList
+                
+        try
+        {
+            reader.reset();
+            System.out.println("after reset, reader says: " + reader.next());
 
+            FileWriter writer = new FileWriter("tmpList.txt");
+            for(int i = 1; i < lineNum; i++)
+            {
+             writer.write(reader.nextLine() + "\n");
+            }
+
+         writer.write(date + "    " + time + "    " + name + "    " + desc + "\n");
+
+            while(reader.hasNext())
+            {
+             writer.write(reader.nextLine() + "\n");
+            }
+
+         writer.close();
+        }
+        catch(IOException e)
+        {
+            System.out.println("an error occurred");
+        }
+        
+        
         //write new event
 
         //continue copying original list from line: (linenum + 1)
@@ -89,8 +132,6 @@ public class Calendar implements calendarInterface
      */
     public void makeList()
     {
-        
+        System.out.println("list");
     }
-
-    
 }
