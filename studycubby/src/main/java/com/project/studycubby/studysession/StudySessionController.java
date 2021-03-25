@@ -32,10 +32,11 @@ public class StudySessionController {
 	@RequestMapping("/SessionStart-10")
 	public String startSession10(Model model) throws IOException {
 
-		new MiniSession(10);
-
+		MiniSession session = new MiniSession(10);
 		Tips tips = new Tips();
+		
 		model.addAttribute("tips", tips);
+		model.addAttribute("session", session);
 
 		return SESSIONSTART;
 	}
