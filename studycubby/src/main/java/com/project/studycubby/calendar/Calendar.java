@@ -36,17 +36,16 @@ public class Calendar implements calendarInterface
     public void createEvent(String date, int time, String name, String desc) throws FileNotFoundException
     {
         //create file stream from Events.txt
-        File Events = new File("D:\\Aglets\\Events.txt");
+        File Events = new File("E:\\Aglets\\Events.txt");
         Scanner reader = new Scanner(Events);
 
         //create file stream from tmpList.txt
-        // File tmpList = new File("D:\\Aglets\\tmpList.txt");
+        File tmpList = new File("E:\\Aglets\\tmpList.txt");
 
         //compare date loop to find insert location - if date is same, compare time
         reader.nextLine();
 
         String curDate = reader.next();
-        System.out.println("the first curDate = " + curDate);
         int lineNum = 2;
 
         while(reader.hasNext())
@@ -56,7 +55,6 @@ public class Calendar implements calendarInterface
                 lineNum ++;
                 reader.nextLine();
                 curDate = reader.next();
-                System.out.println("curDate = " + curDate); 
             }
             else if(curDate.compareTo(date) > 0)
             {
@@ -64,6 +62,7 @@ public class Calendar implements calendarInterface
             }
             else
             {
+                System.out.println("compared 0");
                 if(reader.nextInt() > time)
                 {
                     break;
@@ -72,40 +71,57 @@ public class Calendar implements calendarInterface
                 lineNum++;
             }
         }
+        reader.close();
 
         //copy from original list to tmpList
-                
+        Scanner copier1 = new Scanner(Events);
+
         try
         {
-            reader.reset();
-            System.out.println("after reset, reader says: " + reader.next());
-
-            FileWriter writer = new FileWriter("tmpList.txt");
+            FileWriter tmpWriter = new FileWriter("E:\\Aglets\\tmpList.txt");
             for(int i = 1; i < lineNum; i++)
             {
-             writer.write(reader.nextLine() + "\n");
+             tmpWriter.write(copier1.nextLine() + "\n");
             }
 
-         writer.write(date + "    " + time + "    " + name + "    " + desc + "\n");
+            //write new event
+            tmpWriter.write(date + "    " + time + "    " + name + "   " + desc + "\n");
 
-            while(reader.hasNext())
+            //continue copying original list from line: (linenum + 1)
+            while(copier1.hasNext())
             {
-             writer.write(reader.nextLine() + "\n");
+             tmpWriter.write(copier1.nextLine() + "\n");
             }
 
-         writer.close();
+            tmpWriter.close();
+        }
+        catch(IOException e)
+        {
+            System.out.println("an error occurred");
+        }
+
+        copier1.close();
+
+        //overwrite original list with tmpList
+        Scanner copier2 = new Scanner(tmpList);
+
+        try
+        {
+            FileWriter finalWriter = new FileWriter("E:\\Aglets\\Events.txt");
+
+            while(copier2.hasNext())
+            {
+                finalWriter.write(copier2.nextLine() + "\n");
+            }
+
+            finalWriter.close();
         }
         catch(IOException e)
         {
             System.out.println("an error occurred");
         }
         
-        
-        //write new event
-
-        //continue copying original list from line: (linenum + 1)
-
-        reader.close();
+        copier2.close();
     }
 
     /**

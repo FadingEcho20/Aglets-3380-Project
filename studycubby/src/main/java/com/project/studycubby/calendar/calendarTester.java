@@ -8,9 +8,8 @@ public class calendarTester
     {
         Calendar calendar = new Calendar();
 
-        calendar.makeList();
         try {
-            calendar.createEvent("2/20/2021", 1700, "Attend Meeting", "Meet at 1100 PFT");
+            calendar.createEvent("2/20/2021", 1900, "Attend Meeting", "Meet at 2272 PFT");
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
