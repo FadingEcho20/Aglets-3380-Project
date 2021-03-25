@@ -3,6 +3,7 @@
 <head>
    <link href="../static/css/Button.css" th:href="@{css/Button.css}" rel="stylesheet" media="screen">
    <link href="../static/css/StyleSheet.css" th:href="@{css/StyleSheet.css}" rel="stylesheet" media="screen">
+   <link href="../static/css/StudyPage.css" th:href="@{css/StudyPage.css}" rel="stylesheet" media="screen">
 	<title>Study Session</title>
 </head>
 <body style="background-color: rgb(240, 213, 191);">
@@ -16,35 +17,29 @@
     </div>
 
     <div id="Header">
-      <p style="position:absolute; 
-        left:750px; 
-        top:50px; 
-        text-align: center;
-        font-family:'Lucida Sans'; 
-        font-size:30px">
+      <p>
         Studying in Progress...
       </p>
     </div>
 
-    <div id="Body">
-      <p style="position:absolute; 
-        left:750px; 
-        top:150px; 
-        text-align: center;
-        font-family:'Lucida Sans'; 
-        font-size:25px">
+    <div id="TipA">
+      <p>
         Just a little reminder:
       </p>
     </div>
 
-    <div>
-      <p style ="position:absolute; 
-      left:750px; 
-      top:200px; 
-      text-align: center;
-      font-family:'Lucida Sans'; 
-      font-size:20px"
-      th:text="${tips}">
+    <div id="TipB">
+      <p th:text="${tips}" >
+    </div>
+
+    <div id="Info" th:object = "${session}">
+      <p>
+        <b>You have started a </b> 
+        <span th:utext="*{sessionLength}"></span>
+        <b> minute session with </b> 
+        <span th:utext="*{breakAmount}"></span>
+        <b> breaks.</b>
+      </p>
     </div>
 
 </body>
