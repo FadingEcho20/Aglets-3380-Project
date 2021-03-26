@@ -1,0 +1,37 @@
+#Header {
+    display: flex;
+    justify-content: center;
+    margin-left: 200px;
+    text-align: center;
+    font-family:'Lucida Sans'; 
+    font-size:30px
+}
+
+#TipA {
+    display: flex;
+    justify-content: center;
+    margin-left: 200px;
+    top:150px; 
+    text-align: center;
+    font-family:'Lucida Sans'; 
+    font-size:25px
+}
+
+#TipB {
+    display: flex;
+    justify-content: center;
+    margin-left: 200px;
+    /* top:100px;  */
+    text-align: center;
+    font-family:'Lucida Sans'; 
+    font-size:20px
+}
+
+#Info {
+    display: flex;
+    justify-content: center;
+    margin-left: 200px;
+    text-align: center;
+    font-family:'Lucida Sans'; 
+    font-size:20px
+}

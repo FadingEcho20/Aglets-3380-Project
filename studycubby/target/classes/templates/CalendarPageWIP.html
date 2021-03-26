@@ -1,0 +1,107 @@
+<!this document is a modified version of a document found on the following website: https://uicookies.com/html-calendar/>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    
+<head>
+   <link href="../static/css/CalendarPage.css" th:href="@{css/CalendarPage.css}" rel="stylesheet" media="screen">
+   <link href="../static/css/StyleSheet.css" th:href="@{css/StyleSheet.css}" rel="stylesheet" media="screen">
+	<title>Study Cubby</title>
+</head>
+
+<body style="background-color: rgb(240, 213, 191);">
+
+    <div id="Menu" style="position:fixed;">
+        
+        <p>Menu</p>
+        <div><a th:href="@{CalendarPage}">Calendar</a></div>
+        <div><a th:href="@{Notespage}">Notes</a></div>
+        <div><a th:href="@{Home Page example}">Home</a></div>
+    
+    </div>
+
+    <div id="Body">
+        
+      <div class="container">
+          
+        <div class="calendar dark">
+            
+            <div class="calendar_header">
+                
+              <h1 class = "header_title">My Events</h1>
+              
+            </div>  
+            
+            <div class="Today">
+                
+              <div class="cl_plan">
+                  
+                <div class="cl_title">Pizza Time</div>
+                <div class="cl_copy">Pick up pizza from Pizza Hut</div>
+                <div class="cl_copy">1/12/2021</div>
+                
+                <div class="cl_add">
+                  <i class="fas fa-plus"></i>
+                </div>
+                
+              </div>
+                
+            </div>
+            
+            <div class="calendar_events">
+   
+              <p class="ce_title">Upcoming Events</p>
+              
+              <div class="event_item">
+                  
+                <div class="ei_Dot dot_active"></div>
+                <div class="ei_Title">name</div>
+                <div class="ei_Copy">desc</div>
+                <div class="ei_Copy">date</div>
+                
+              </div>
+              
+              <div class="event_item">
+                  
+                <div class="ei_Dot dot_active"></div>
+                <div class="ei_Title">name</div>
+                <div class="ei_Copy">desc</div>
+                <div class="ei_Copy">date</div>
+                
+              </div>
+              
+              <div class="event_item">
+                  
+                <div class="ei_Dot"></div>
+                <div class="ei_Title">13:00 pm</div>
+                <div class="ei_Copy">Meet with the client for final design <br> @foofinder</div>
+                
+              </div>
+              
+              <div class="event_item">
+                  
+                <div class="ei_Dot dot_active"></div>
+                <div class="ei_Title">name</div>
+                <div class="ei_Copy">desc</div>
+                <div class="ei_Copy">date</div>
+                
+              </div>
+              
+              <div class="event_item">
+                  
+                <div class="ei_Dot"></div>
+                <div class="ei_Title">15:30 am</div>
+                <div class="ei_Copy">Add some more events to the calendar</div>
+                
+              </div>
+              
+            </div>
+            
+          </div>
+        
+        </div>
+          
+    </div>
+    
+</body>
+
+</html>

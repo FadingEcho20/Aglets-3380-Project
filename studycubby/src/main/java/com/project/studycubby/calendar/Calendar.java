@@ -36,17 +36,19 @@ public class Calendar implements calendarInterface
     public void createEvent(String date, int time, String name, String desc) throws FileNotFoundException
     {
         //create file stream from Events.txt
-        File Events = new File("E:\\Aglets\\Events.txt");
+        File Events = new File("D:\\Aglets\\Events.txt");
         Scanner reader = new Scanner(Events);
 
         //create file stream from tmpList.txt
-        File tmpList = new File("E:\\Aglets\\tmpList.txt");
+        File tmpList = new File("D:\\Aglets\\tmpList.txt");
 
         //compare date loop to find insert location - if date is same, compare time
         reader.nextLine();
 
         String curDate = reader.next();
         int lineNum = 2;
+        int curTime;
+        System.out.println("time = " + time);
 
         while(reader.hasNext())
         {
@@ -63,12 +65,32 @@ public class Calendar implements calendarInterface
             else
             {
                 System.out.println("compared 0");
-                if(reader.nextInt() > time)
+
+                curTime = reader.nextInt();
+                System.out.println("curTime = " + curTime);
+                if(curTime < time)
                 {
-                    break;
+                    lineNum++;
                 }
 
-                lineNum++;
+                //check if event is duplicate. if duplicate, terminate. otherwise, continue insertion
+                if(curTime == time)
+                {
+                    System.out.println("Same time");
+                    if(reader.next().compareTo(name) == 0)
+                    {
+                        System.out.println("Same name");
+                        if(reader.next().compareTo(desc) == 0)
+                        {
+                            reader.close();
+                            System.out.println("same desc...returning...");
+                            return;
+                        }
+                    }
+                }
+
+                System.out.println("comes out of the loop");
+                break;
             }
         }
         reader.close();
@@ -78,7 +100,7 @@ public class Calendar implements calendarInterface
 
         try
         {
-            FileWriter tmpWriter = new FileWriter("E:\\Aglets\\tmpList.txt");
+            FileWriter tmpWriter = new FileWriter("D:\\Aglets\\tmpList.txt");
             for(int i = 1; i < lineNum; i++)
             {
              tmpWriter.write(copier1.nextLine() + "\n");
@@ -107,7 +129,7 @@ public class Calendar implements calendarInterface
 
         try
         {
-            FileWriter finalWriter = new FileWriter("E:\\Aglets\\Events.txt");
+            FileWriter finalWriter = new FileWriter("D:\\Aglets\\Events.txt");
 
             while(copier2.hasNext())
             {
