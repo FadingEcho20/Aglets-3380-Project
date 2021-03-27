@@ -1,3 +1,5 @@
+//created by Narek and Stephanie M.
+
 package com.project.studycubby.flashcards;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,17 +11,20 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "flashcards/")
+
 public class FlashcardController
 {
     private final FlashcardService flashcardService;
 
     @Autowired
+    
     public FlashcardController(FlashcardService flashcardService)
     {
         this.flashcardService = flashcardService;
     }
 
     @GetMapping
+    
     public List<Flashcards> getFlashacrds()
     {
         return flashcardService.getFlashcards();

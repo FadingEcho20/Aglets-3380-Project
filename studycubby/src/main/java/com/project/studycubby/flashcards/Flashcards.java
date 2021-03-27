@@ -1,5 +1,8 @@
+//created by Narek and Stephanie M.
+
 package com.project.studycubby.flashcards;
 
+//this is the overall constructor class of flashcards
 public class Flashcards implements FlashStart
 {
     private String subjectName;
@@ -8,6 +11,7 @@ public class Flashcards implements FlashStart
     public Flashcards()
     {}
 
+    //this is the constructor for flashcards to get the name and number of cards
     public Flashcards(String subjectName, String subjectNumber)
     {
         this.subjectName = subjectName;
@@ -33,12 +37,15 @@ public class Flashcards implements FlashStart
     {
         this.subjectNumber = subjectNumber;
     }
+    
     public void editFcards()
     {
 
     }
+    
     public void deleteFcards()
     {
 
     }
+    
 }

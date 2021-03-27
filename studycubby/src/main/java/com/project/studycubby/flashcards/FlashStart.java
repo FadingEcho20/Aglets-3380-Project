@@ -1,3 +1,5 @@
+//created by Narek and Stephanie M.
+
 package com.project.studycubby.flashcards;
 
 public interface FlashStart
@@ -5,7 +7,7 @@ public interface FlashStart
     public default String getSubjectName() 
     {
 
-        return  "";
+        return "";
     }
 
     public default String getSubjectNumber() 
@@ -13,4 +15,5 @@ public interface FlashStart
 
         return "";
     }
+    
 }

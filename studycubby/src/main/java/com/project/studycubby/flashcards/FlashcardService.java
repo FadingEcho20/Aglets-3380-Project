@@ -1,3 +1,5 @@
+//created by Narek and Stephanie M.
+
 package com.project.studycubby.flashcards;
 
 import org.springframework.stereotype.Service;
@@ -10,6 +12,10 @@ public class FlashcardService
     
     public List<Flashcards> getFlashcards()
     {
+        // hard coding of flashcards for examples
+        // hopeful goal is for user to be able insert their own name and number
+        // but this is a stretch feature
+        
         return List.of
         (
                 new Flashcards("Biology",
@@ -25,5 +31,7 @@ public class FlashcardService
                 new Flashcards("Chemistry",
                         "101")
         );
+        
     }
+    
 }
