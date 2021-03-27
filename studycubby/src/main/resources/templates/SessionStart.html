@@ -29,17 +29,11 @@
     </div>
 
     <div id="TipB">
-      <p th:text="${tips}" >
+      <p th:text="${tips}">
     </div>
 
-    <div id="Info" th:object = "${session}">
-      <p>
-        <b>You have started a </b> 
-        <span th:utext="*{sessionLength}"></span>
-        <b> minute session with </b> 
-        <span th:utext="*{breakAmount}"></span>
-        <b> breaks.</b>
-      </p>
+    <div id="Info">
+      <p th:text="${newsession}">
     </div>
 
 </body>
