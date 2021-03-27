@@ -30,7 +30,8 @@ public class Tips
 
     //A method used to print out all of the tips in the tipsArray
     //Developed by: Jayme E.
-    public void printTips() {
+    public void printTips() 
+    {
 
         for(String x : tipsArray)
         {
@@ -38,7 +39,9 @@ public class Tips
         }
     }
 
-    public String toString() {
+    @Override
+    public String toString() 
+    {
         return tipsArray[(int)(Math.random() * 16)];
     }
 

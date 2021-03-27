@@ -1,10 +1,12 @@
 package com.project.studycubby.studysession;
+import javax.swing.JFrame;
 import java.util.*;
 
 public class StudySessionTimer 
 {
     Timer timer;
     ParentSession current;
+    JFrame frame;
 
     /*
     * A set of constructors for a StudySessionTimer object that times different parts of 
@@ -13,16 +15,18 @@ public class StudySessionTimer
     * Developed by: Jayme E. & LaSean S.
     */
 
-    public StudySessionTimer(int seconds, ParentSession current, boolean type)
+    public StudySessionTimer(int seconds, ParentSession current, JFrame frame, boolean type)
     {
         this.current = current;
+        this.frame = frame;
         timer = new Timer();
         timer.schedule(new StudyRun(), seconds*1000);
     }
 
-    public StudySessionTimer(int seconds, ParentSession current)
+    public StudySessionTimer(int seconds, ParentSession current, JFrame frame)
     {
         this.current = current;
+        this.frame = frame;
         timer = new Timer();
         timer.schedule(new BreakRun(), seconds*1000);
     }
@@ -38,11 +42,13 @@ public class StudySessionTimer
             switch(current.breakAmount) {
 
                 case 0:
+                frame.dispose();
                 current.endSession();
                 timer.cancel();
                 break;
 
                 default:
+                frame.dispose();
                 current.startBreak();
                 timer.cancel();
 
@@ -56,6 +62,7 @@ public class StudySessionTimer
         {
             System.out.println("Your break is over.");
 
+            frame.dispose();
             current.startSession();
             timer.cancel();
         }
