@@ -40,8 +40,8 @@ public class ParentSession implements StudySession
         userNotification();
         System.out.println("Time to work!");
         System.out.println("You have " + blockLength/60 + " minutes");
-        new StudySessionTimer(blockLength, this, frame, isStudying);
-        //new StudySessionTimer(15, this, frame, isStudying); //For use in displaying the functionality of the prototype
+        //new StudySessionTimer(blockLength, this, frame, isStudying); //actual timer declaration to be used
+        new StudySessionTimer(15, this, frame, isStudying); //For use in displaying the functionality of the prototype (presentation)
 
     }
 
@@ -55,8 +55,8 @@ public class ParentSession implements StudySession
         System.out.println("You have " + breakLength/60 + " minutes");
 
         breakAmount--;
-        new StudySessionTimer(breakLength, this, frame);
-        //new StudySessionTimer(5, this, frame); //For use in displaying the functionality of the prototype
+        //new StudySessionTimer(breakLength, this, frame); //actual timer declaration to be used
+        new StudySessionTimer(5, this, frame); //For use in displaying the functionality of the prototype (presentation)
     }
 
     //A method to signal the end of the study session
