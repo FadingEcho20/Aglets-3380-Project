@@ -9,7 +9,7 @@ public class calendarTester
         Calendar calendar = new Calendar();
 
         try {
-            calendar.createEvent("12/25/2021", 0000, "Merry Christmas", "Happy Holidays");
+            calendar.createEvent("8/17/2021", 0000, "Kalob's Birthday", "Cookie cake pls");
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

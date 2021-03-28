@@ -16,7 +16,9 @@ import java.util.*;
 
 public class Calendar implements calendarInterface
 {
-
+    /**
+     * empty constructor to allow the use of the methods in this class
+     */
     public Calendar()
     {
     }
@@ -36,78 +38,121 @@ public class Calendar implements calendarInterface
     public void createEvent(String date, int time, String name, String desc) throws FileNotFoundException
     {
         //create file stream from Events.txt
-        File Events = new File("D:\\Aglets\\Events.txt");
-        Scanner reader = new Scanner(Events);
+        File Events = new File("studycubby\\Events.txt");
+        Scanner reader = new Scanner(Events).useDelimiter("//");
 
         //create file stream from tmpList.txt
-        File tmpList = new File("D:\\Aglets\\tmpList.txt");
+        File tmpList = new File("studycubby\\tmpList.txt");
 
         //compare date loop to find insert location - if date is same, compare time
         reader.nextLine();
+        String curDate;
 
-        String curDate = reader.next();
         int lineNum = 2;
         int curTime;
-        System.out.println("time = " + time);
+
+        //parse date given
+        Scanner dateParse = new Scanner(date).useDelimiter("\\s*/\\s*");
+        int newMonth = dateParse.nextInt();
+        int newDay = dateParse.nextInt();
+        int newYear = dateParse.nextInt();
+        dateParse.close();
 
         while(reader.hasNext())
         {
-            if(curDate.compareTo(date) < 0)
+            curDate = reader.next();
+
+            //parse date
+            Scanner curDateParse = new Scanner(curDate).useDelimiter("\\s*/\\s*");
+            int curMonth = curDateParse.nextInt();
+            int curDay = curDateParse.nextInt();
+            int curYear = curDateParse.nextInt();
+            curDateParse.close();
+
+            if(curYear < newYear)
             {
                 lineNum ++;
                 reader.nextLine();
-                curDate = reader.next();
             }
-            else if(curDate.compareTo(date) > 0)
+
+            else if(curYear > newYear)
             {
                 break;
             }
+
+            //check if event is duplicate. if duplicate, terminate. otherwise, continue insertion
             else
             {
-                System.out.println("compared 0");
-
-                curTime = reader.nextInt();
-                System.out.println("curTime = " + curTime);
-                if(curTime < time)
+                if(curMonth < newMonth)
                 {
                     lineNum++;
+                    reader.nextLine();
                 }
 
-                //check if event is duplicate. if duplicate, terminate. otherwise, continue insertion
-                if(curTime == time)
+                else if(curMonth > newMonth)
                 {
-                    System.out.println("Same time");
-                    if(reader.next().compareTo(name) == 0)
+                    break;
+                }
+
+                else
+                {
+                    if(curDay < newDay)
                     {
-                        System.out.println("Same name");
-                        if(reader.next().compareTo(desc) == 0)
+                        lineNum++;
+                        reader.nextLine();
+                    }
+
+                    else if(curDay > newDay)
+                    {
+                        break;
+                    }
+
+                    else
+                    {
+                        curTime = reader.nextInt();
+
+                        if(curTime < time)
                         {
-                            reader.close();
-                            System.out.println("same desc...returning...");
-                            return;
+                            lineNum++;
                         }
+
+                        //check if duplicate event
+                        else if(curTime == time)
+                        {
+                            if(reader.next().compareTo(name) == 0)
+                            {
+                                System.out.println("Same name");
+                                if(reader.next().compareTo(desc) == 0)
+                                {
+                                    System.out.println("same desc...returning...");
+                                    reader.close();
+                                    return;
+                                }
+                            }
+                        }
+
+                        else
+                            break;
                     }
                 }
-
-                System.out.println("comes out of the loop");
-                break;
             }
         }
         reader.close();
+        System.out.println("inserting event at line " + lineNum);
 
         //copy from original list to tmpList
         Scanner copier1 = new Scanner(Events);
 
         try
         {
-            FileWriter tmpWriter = new FileWriter("D:\\Aglets\\tmpList.txt");
+            FileWriter tmpWriter = new FileWriter("studycubby\\tmpList.txt");
             for(int i = 1; i < lineNum; i++)
             {
              tmpWriter.write(copier1.nextLine() + "\n");
             }
 
             //write new event
-            tmpWriter.write(date + "    " + time + "    " + name + "   " + desc + "\n");
+            tmpWriter.write(date + "/    //" + time + "    //" + name + "   //" + desc + "\n");
 
             //continue copying original list from line: (linenum + 1)
             while(copier1.hasNext())
@@ -129,7 +174,7 @@ public class Calendar implements calendarInterface
 
         try
         {
-            FileWriter finalWriter = new FileWriter("D:\\Aglets\\Events.txt");
+            FileWriter finalWriter = new FileWriter("studycubby\\Events.txt");
 
             while(copier2.hasNext())
             {
@@ -166,7 +211,7 @@ public class Calendar implements calendarInterface
     }
 
     /**
-     * This method will read a list of eventts and write an xml file for use in an HTML file.
+     * This method will read a list of events and write an xml file for use in an HTML file.
      */
     public void makeList()
     {

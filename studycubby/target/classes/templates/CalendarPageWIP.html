@@ -1,107 +1,157 @@
-<!this document is a modified version of a document found on the following website: https://uicookies.com/html-calendar/>
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    
+
 <head>
-   <link href="../static/css/CalendarPage.css" th:href="@{css/CalendarPage.css}" rel="stylesheet" media="screen">
-   <link href="../static/css/StyleSheet.css" th:href="@{css/StyleSheet.css}" rel="stylesheet" media="screen">
-	<title>Study Cubby</title>
+    <link href="../static/css/CalendarPage.css" th:href="@{css/CalendarPage.css}" rel="stylesheet" media="screen">
+    <link href="../static/css/StyleSheet.css" th:href="@{css/StyleSheet.css}" rel="stylesheet" media="screen">
+    <title>Study Cubby</title>
 </head>
+<script lang="javascript">
+    //function that saves the data
+    let saveFile = () => {
+
+        // Get the data from each element on the form.
+
+        var msg = document.getElementById('events');
+
+        // This variable stores all the data.
+        let data = msg.value;
+
+        // Convert the text to BLOB.
+        const textToBLOB = new Blob([data], {
+            type: 'text/plain'
+        });
+        const sFileName = 'event.txt'; // The file to save the data.
+
+        let newLink = document.createElement("");
+        newLink.download = sFileName;
+
+        if (window.webkitURL != null) {
+            newLink.href = window.webkitURL.createObjectURL(textToBLOB);
+        } else {
+            newLink.href = window.URL.createObjectURL(textToBLOB);
+            newLink.style.display = "";
+            document.body.appendChild(newLink);
+        }
+
+        newLink.click();
+    }
+</script>
+<!--Background Color of the entire site-->
 
 <body style="background-color: rgb(240, 213, 191);">
 
     <div id="Menu" style="position:fixed;">
-        
+
         <p>Menu</p>
         <div><a th:href="@{CalendarPage}">Calendar</a></div>
         <div><a th:href="@{Notespage}">Notes</a></div>
         <div><a th:href="@{Home Page example}">Home</a></div>
-    
+
+    </div>
+    <!--Calendar Box-->
+    <div id="Body">
+
+        <div class="container">
+
+            <div class="calendar dark">
+
+                <div class="calendar_header">
+                    <!--Calendar Title-->
+                    <h1 class="header_title">Welcome Back</h1>
+
+                    <p class="header_copy"> Calendar Plan</p>
+
+                </div>
+
+                <div class="calendar_plan">
+
+                    <div class="cl_plan">
+                        <!--Today's Date-->
+                        <div class="cl_title">Today</div>
+
+                        <div class="cl_copy">22nd April 2018</div>
+
+                        <div class="cl_add">
+                            <i class="fas fa-plus"></i>
+                        </div>
+
+                    </div>
+
+                </div>
+                <!--Events-->
+
+                <div class="calendar_events">
+
+                    <p class="ce_title">Upcoming Events</p>
+
+                    <div class="event_item">
+                        <!-- Event 1-->
+
+                        <div class="ei_Dot dot_active"></div>
+
+                        <div class="ei_Title">10:30 am</div>
+
+                        <div class="ei_Copy">Monday briefing with the team</div>
+
+                    </div>
+                    <!-- Event 2-->
+                    <div class="event_item">
+
+                        <div class="ei_Dot"></div>
+
+                        <div class="ei_Title">12:00 pm</div>
+
+                        <div class="ei_Copy">Lunch for with the besties</div>
+
+                    </div>
+
+                    <div class="event_item">
+                        <!-- Event 3-->
+                        <div class="ei_Dot"></div>
+
+                        <div class="ei_Title">13:00 pm</div>
+
+                        <div class="ei_Copy">Meet with the client for final design <br> @foofinder</div>
+
+                    </div>
+
+                    <div class="event_item">
+                        <!-- Event 4-->
+                        <div class="ei_Dot"></div>
+
+                        <div class="ei_Title">14:30 am</div>
+
+                        <div class="ei_Copy">Plan event night to inspire students</div>
+
+                    </div>
+                    <!--button to save-->
+                    <div class="event_item">
+
+                        <input type="button" id="bt" value="Add a new event" onclick="saveFile()" />
+                        <!-- Event 5-->
+                        <div class="ei_Dot"></div>
+
+                        <div class="ei_Title">15:30 am</div>
+
+                        <div class="ei_Copy">No events</div>
+
+                        <textarea class="events" id="events" name="events" placeholder=" " rows="1" cols="18">
+        
+            </textarea>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
 
-    <div id="Body">
-        
-      <div class="container">
-          
-        <div class="calendar dark">
-            
-            <div class="calendar_header">
-                
-              <h1 class = "header_title">My Events</h1>
-              
-            </div>  
-            
-            <div class="Today">
-                
-              <div class="cl_plan">
-                  
-                <div class="cl_title">Pizza Time</div>
-                <div class="cl_copy">Pick up pizza from Pizza Hut</div>
-                <div class="cl_copy">1/12/2021</div>
-                
-                <div class="cl_add">
-                  <i class="fas fa-plus"></i>
-                </div>
-                
-              </div>
-                
-            </div>
-            
-            <div class="calendar_events">
-   
-              <p class="ce_title">Upcoming Events</p>
-              
-              <div class="event_item">
-                  
-                <div class="ei_Dot dot_active"></div>
-                <div class="ei_Title">name</div>
-                <div class="ei_Copy">desc</div>
-                <div class="ei_Copy">date</div>
-                
-              </div>
-              
-              <div class="event_item">
-                  
-                <div class="ei_Dot dot_active"></div>
-                <div class="ei_Title">name</div>
-                <div class="ei_Copy">desc</div>
-                <div class="ei_Copy">date</div>
-                
-              </div>
-              
-              <div class="event_item">
-                  
-                <div class="ei_Dot"></div>
-                <div class="ei_Title">13:00 pm</div>
-                <div class="ei_Copy">Meet with the client for final design <br> @foofinder</div>
-                
-              </div>
-              
-              <div class="event_item">
-                  
-                <div class="ei_Dot dot_active"></div>
-                <div class="ei_Title">name</div>
-                <div class="ei_Copy">desc</div>
-                <div class="ei_Copy">date</div>
-                
-              </div>
-              
-              <div class="event_item">
-                  
-                <div class="ei_Dot"></div>
-                <div class="ei_Title">15:30 am</div>
-                <div class="ei_Copy">Add some more events to the calendar</div>
-                
-              </div>
-              
-            </div>
-            
-          </div>
-        
-        </div>
-          
     </div>
-    
+
 </body>
 
 </html>
