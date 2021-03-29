@@ -1,13 +1,13 @@
 package com.project.studycubby.calendar;
 
-import java.io.FileNotFoundException;
-
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import java.io.*;
 
-@RestController
-@RequestMapping(path = "api/v1/calendar")
+@Controller
 public class calendarController 
 {
+    Calendar calendar = new Calendar();
+
 }

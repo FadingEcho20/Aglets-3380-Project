@@ -6,5 +6,5 @@ public interface calendarInterface
 {
     public void createEvent(String date, int time, String name, String desc) throws FileNotFoundException;
     public void deleteEvent(int id) throws FileNotFoundException;
-    public void editEvent() throws FileNotFoundException;
+    public void editEvent(int id, String date, int time, String name, String desc) throws FileNotFoundException;
 }

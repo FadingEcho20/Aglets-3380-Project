@@ -261,12 +261,27 @@ public class Calendar implements calendarInterface
         copier2.close();
     }
 
-    public void editEvent()
+    /**
+     * This method will "edit" an existing event on a particular line. This method will delete the existing
+     * event and replace it with another user defined attempt.
+     * 
+     * @throws FileNotFoundException
+     * @param id [int]  - the line at which to delete the event
+     * @param date [String]     - new date for the event to be added
+     * @param time [int]     - new time for the event to be added
+     * @param name [String]     - new name for the event to be added
+     * @param desc [String]     - new description for the event to be added
+     * @author Kalob Morel
+     * @since 3/28/2021
+     */
+    public void editEvent(int id, String date, int time, String name, String desc) throws FileNotFoundException
     {
+        deleteEvent(id);
+        createEvent(date, time, name, desc);
     }
 
     /**
-     * This method will read a list of events and write an xml file for use in an HTML file.
+     * This method will read a list of events and export it for displaying on the website.
      */
     public void makeList()
     {
