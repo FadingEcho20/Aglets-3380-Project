@@ -25,7 +25,7 @@ public class FlashcardController
 
     @GetMapping
     
-    public List<Flashcards> getFlashacrds()
+    public List<Flashcards> getFlashcards()
     {
         return flashcardService.getFlashcards();
     }
