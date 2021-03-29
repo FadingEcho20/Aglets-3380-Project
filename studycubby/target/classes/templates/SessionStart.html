@@ -1,3 +1,4 @@
+<!-- Developed by: LaSean S. -->
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -6,7 +7,7 @@
    <link href="../static/css/StudyPage.css" th:href="@{css/StudyPage.css}" rel="stylesheet" media="screen">
 	<title>Study Session</title>
 </head>
-<body style="background-color: rgb(240, 213, 191);">
+<body th:style="'background:url('+ @{/images/Wheat.jpg} +');'">
 
     <div id="Menu" style="position:fixed;">
         <p>Menu</p>
@@ -28,10 +29,12 @@
       </p>
     </div>
 
+    <!-- Displays a randomized tip object to display that is passed by the controller -->
     <div id="TipB">
       <p th:text="${tips}">
     </div>
 
+    <!-- Displays info about the study session specifications that is passed by the controller -->
     <div id="Info">
       <p th:text="${newsession}">
     </div>

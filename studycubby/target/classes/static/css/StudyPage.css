@@ -7,6 +7,12 @@
     font-size:30px
 }
 
+#Header p { 
+    width: 400px; 
+    height: 40px; 
+    background-color: rgb(128,191,206);  
+} 
+
 #TipA {
     display: flex;
     justify-content: center;
@@ -17,14 +23,25 @@
     font-size:25px
 }
 
+#TipA p { 
+    width: 400px; 
+    height: 40px; 
+    background-color: rgb(128,191,206);  
+} 
+
 #TipB {
     display: flex;
     justify-content: center;
     margin-left: 200px;
-    /* top:100px;  */
     text-align: center;
     font-family:'Lucida Sans'; 
     font-size:20px
+}
+
+#TipB p { 
+    width: 700px; 
+    height: 80px; 
+    background-color: rgb(240, 213, 191);  
 }
 
 #Info {
@@ -35,3 +52,9 @@
     font-family:'Lucida Sans'; 
     font-size:20px
 }
+
+#Info p { 
+    width: 700px; 
+    height: 40px; 
+    background-color: rgb(128,191,206);  
+} 

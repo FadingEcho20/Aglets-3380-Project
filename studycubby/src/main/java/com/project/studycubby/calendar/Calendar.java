@@ -11,7 +11,6 @@
 package com.project.studycubby.calendar;
 
 import java.io.*;
-import java.io.FileWriter;
 import java.util.*;
 
 public class Calendar implements calendarInterface
@@ -199,11 +198,67 @@ public class Calendar implements calendarInterface
      * @param int [id]    - the position of the event on the list - line number of the unwanted event + 1
      * 
      * @author Kalob Morel
+     * @throws FileNotFoundException
      * @since 3/23/2021
      */
-    public void deleteEvent(int id)
+    public void deleteEvent(int id) throws FileNotFoundException
     {
+        //create file stream from Events.txt
+        File Events = new File("studycubby\\Events.txt");
 
+        //copy from original list to tmpList
+        Scanner copier1 = new Scanner(Events);
+
+        try
+        {
+            //copy original list until
+            FileWriter tmpWriter = new FileWriter("studycubby\\tmpList.txt");
+            for(int i = 1; i < id; i++)
+            {
+             tmpWriter.write(copier1.nextLine() + "\n");
+            }
+
+            //skip unwanted event
+            copier1.nextLine();
+
+            //continue copying original list from after id
+            while(copier1.hasNext())
+            {
+             tmpWriter.write(copier1.nextLine() + "\n");
+            }
+
+            tmpWriter.close();
+        }
+        catch(IOException e)
+        {
+            System.out.println("an error occurred");
+        }
+
+        copier1.close();
+
+        //create file stream from tmpList.txt
+        File tmpList = new File("studycubby\\tmpList.txt");
+
+        //overwrite original list with tmpList
+        Scanner copier2 = new Scanner(tmpList);
+
+        try
+        {
+            FileWriter finalWriter = new FileWriter("studycubby\\Events.txt");
+
+            while(copier2.hasNext())
+            {
+                finalWriter.write(copier2.nextLine() + "\n");
+            }
+
+            finalWriter.close();
+        }
+        catch(IOException e)
+        {
+            System.out.println("an error occurred");
+        }
+        
+        copier2.close();
     }
 
     public void editEvent()
