@@ -1,4 +1,5 @@
-#Header {
+#Header 
+{
     display: flex;
     justify-content: center;
     margin-left: 200px;
@@ -7,13 +8,15 @@
     font-size:30px
 }
 
-#Header p { 
+#Header p 
+{ 
     width: 400px; 
     height: 40px; 
     background-color: rgb(128,191,206);  
 } 
 
-#TipA {
+#TipA 
+{
     display: flex;
     justify-content: center;
     margin-left: 200px;
@@ -23,13 +26,15 @@
     font-size:25px
 }
 
-#TipA p { 
+#TipA p 
+{ 
     width: 400px; 
     height: 40px; 
     background-color: rgb(128,191,206);  
 } 
 
-#TipB {
+#TipB 
+{
     display: flex;
     justify-content: center;
     margin-left: 200px;
@@ -38,13 +43,15 @@
     font-size:20px
 }
 
-#TipB p { 
+#TipB p 
+{ 
     width: 700px; 
     height: 80px; 
     background-color: rgb(240, 213, 191);  
 }
 
-#Info {
+#Info 
+{
     display: flex;
     justify-content: center;
     margin-left: 200px;
@@ -53,7 +60,8 @@
     font-size:20px
 }
 
-#Info p { 
+#Info p 
+{ 
     width: 700px; 
     height: 40px; 
     background-color: rgb(128,191,206);  

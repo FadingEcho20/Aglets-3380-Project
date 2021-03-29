@@ -1,4 +1,5 @@
-#Menu{
+#Menu
+{
     top: 0;
     padding-top: 1px;
     padding-bottom: 0;
@@ -6,30 +7,32 @@
     width:220px;
     background-color: rgb(48,134,156);
  }
- #Menu div{
+ 
+ #Menu div
+ {
      background-color: rgb(128,191,206);
      border: 5px solid black;
      margin-top:10%;
      font-family: 'Times New Roman', Times, serif;
      color: black;
-
  }
  
- #Menu div a{
+ #Menu div a
+ {
      font-size: large;
      margin: 55px;
      text-decoration: none;
-    
-     
  }
  
- div p {
+ div p 
+ {
     font-size: 30px;
     margin: 55px;
     border-width: 10px;
  }
  
- #Body{
+ #Body
+ {
      padding-left: 50%;
      padding-right:20%;
      float: right;
@@ -39,6 +42,7 @@
      padding-bottom: 30%;
  }
 
- #Body p{
+ #Body p
+ {
      text-align: center;
  }
