@@ -1,54 +1,40 @@
 <!DOCTYPE html>
-<!-- created by Stephanie M. -->
-
 <html xmlns:th="http://www.thymeleaf.org">
-    
 <html>
-    
     <style> 
-        <!-- stops the notes textbox from being able to be resized -->
         .comment {
             resize: none;
         }
     </style>
-    
-    <title>
-        Notes
-    </title>
-    
+    <title>Notes</title>
 <head>
     
-    <script src="C:\Users\Stephanie\Desktop\Test\Aglets-3380-Project\studycubby\src\main\java\com\project\studycubby">
-    </script>
+    <script src="C:\Users\Stephanie\Desktop\Test\Aglets-3380-Project\studycubby\src\main\java\com\project\studycubby"></script>
     <link href="../static/css/StyleSheet.css" th:href="@{css/StyleSheet.css}" rel="stylesheet" media="screen">
     <link href="../static/css/Notespage.css" th:href="@{css/Notespage.css}" rel="stylesheet" media="screen">
-	
-    <title>Study Cubby</title>
-    
+	<title>Study Cubby</title>
     <script lang="javascript">
-       //function that does the actual saving of the note to the desktop 
+       
         let saveFile = () => {
     	
         // Get the data from each element on the form.
     	
         var msg = document.getElementById('note');
-        
+        var subject = document.getElementById('downloadlink') ;
         // This variable stores all the data.
         let data =  msg.value;
         
         // Convert the text to BLOB.
         const textToBLOB = new Blob([data], { type: 'text/plain' });
-        const sFileName = 'formData.txt';	   // The file to save the data.
+        const sFileName = subject.value +'.txt';	   // The file to save the data.
 
         let newLink = document.createElement("a");
         newLink.download = sFileName;
 
-        if (window.webkitURL != null) 
-        {
+        if (window.webkitURL != null) {
             newLink.href = window.webkitURL.createObjectURL(textToBLOB);
         }
-        else 
-        {
+        else {
             newLink.href = window.URL.createObjectURL(textToBLOB);
             newLink.style.display = "none";
             document.body.appendChild(newLink);
@@ -56,9 +42,7 @@
 
         newLink.click(); 
     }
-    
     </script>
-    
 </head>
 
 <body style="background-color: rgb(240, 213, 191);">
@@ -66,9 +50,9 @@
     <div id="Menu" style="position:fixed;">
         
        <p>Menu</p>
-       <div><a th:href="@{CalendarPage}">Calendar</a></div>
-       <div><a th:href="@{Notespage}">Notes</a></div>
-       <div><a th:href="@{Home Page example}">Home</a></div>
+        <div><a href="CalendarPage.html">Calendar</a></div>
+        <div><a href="Notespage.html">Notes</a></div>
+        <div><a href="Home Page example.html">Home Page</a></div>
     
     </div>
     
@@ -77,38 +61,22 @@
     </div>
  
     <div id="Body">
-      
+        
+        <p></p>
+        
             
              <div style="text-align: left;  padding-right: 5px" > 
-            
-            <!-- this text area helps to make the actual text box and formatting the size  -->
             <textarea 
-                class="comment" 
-                id="note" 
-                name ="note" 
-                placeholder ="Write Notes Here" 
-                rows="30" cols="80" >
+                class="comment" id="note" name ="note" placeholder ="Write Notes Here" rows="30" cols="80" >
         
             </textarea>
-            
-            <!-- This labels the textbox and allows the user to have a title  -->
-            <input 
-                   type="text" 
-                   id="downloadlink" 
-                   placeholder ="Subject" />    
-            
-            <!-- This made the save button for the notes then has the onclick function
-                    so that it will call the saveFile() whne clicked -->
-            <input 
-                   type="button" 
-                   id="bt" 
-                   value ="Save" 
-                   onclick="saveFile()" />
+            <input type="text" id="downloadlink" placeholder ="Subject" />     
+            <input type="button" id="bt" value ="Save" onclick="saveFile()" />
             
             </div>
             
+        
     </div>
   
 </body>
-
 </html>
