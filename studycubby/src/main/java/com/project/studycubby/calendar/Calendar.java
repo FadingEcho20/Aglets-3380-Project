@@ -34,7 +34,7 @@ public class Calendar implements calendarInterface
      * @author Kalob Morel
      * @since 3/23/2021
      */
-    public void createEvent(String date, int time, String name, String desc) throws FileNotFoundException
+    public void createEvent(String date, String time, String name, String desc) throws FileNotFoundException
     {
         //create file stream from Events.txt
         File Events = new File("studycubby\\Events.txt");
@@ -48,7 +48,7 @@ public class Calendar implements calendarInterface
         String curDate;
 
         int lineNum = 2;
-        int curTime;
+        String curTime;
 
         //parse date given
         Scanner dateParse = new Scanner(date).useDelimiter("\\s*/\\s*");
@@ -101,37 +101,9 @@ public class Calendar implements calendarInterface
                         reader.nextLine();
                     }
 
-                    else if(curDay > newDay)
-                    {
-                        break;
-                    }
-
                     else
                     {
-                        curTime = reader.nextInt();
-
-                        if(curTime < time)
-                        {
-                            lineNum++;
-                        }
-
-                        //check if duplicate event
-                        else if(curTime == time)
-                        {
-                            if(reader.next().compareTo(name) == 0)
-                            {
-                                System.out.println("Same name");
-                                if(reader.next().compareTo(desc) == 0)
-                                {
-                                    System.out.println("same desc...returning...");
-                                    reader.close();
-                                    return;
-                                }
-                            }
-                        }
-
-                        else
-                            break;
+                        break;
                     }
                 }
             }
@@ -151,7 +123,7 @@ public class Calendar implements calendarInterface
             }
 
             //write new event
-            tmpWriter.write(date + "/    //" + time + "    //" + name + "   //" + desc + "\n");
+            tmpWriter.write(date + "/    //" + time + "    //" + name + "   //" + desc + "//\n");
 
             //continue copying original list from line: (linenum + 1)
             while(copier1.hasNext())
@@ -274,7 +246,7 @@ public class Calendar implements calendarInterface
      * @author Kalob Morel
      * @since 3/28/2021
      */
-    public void editEvent(int id, String date, int time, String name, String desc) throws FileNotFoundException
+    public void editEvent(int id, String date, String time, String name, String desc) throws FileNotFoundException
     {
         deleteEvent(id);
         createEvent(date, time, name, desc);
@@ -282,9 +254,49 @@ public class Calendar implements calendarInterface
 
     /**
      * This method will read a list of events and export it for displaying on the website.
+     * @throws FileNotFoundException
      */
-    public void makeList()
+    public Event[] getList() throws FileNotFoundException
     {
-        System.out.println("list");
+        Event[] eventObjectList = new Event[5];
+
+        //create file stream from Events.txt
+        File Events = new File("studycubby\\Events.txt");
+        Scanner reader = new Scanner(Events).useDelimiter("//");
+        reader.nextLine();
+
+        String date;
+        String time;
+        String name;
+        String desc;        
+
+        for(int i = 0; i < eventObjectList.length; i++)
+        {
+            date = reader.next();
+
+            Scanner dateParse = new Scanner(date).useDelimiter("\\s*/\\s*");
+            int newMonth = dateParse.nextInt();
+            int newDay = dateParse.nextInt();
+            int newYear = dateParse.nextInt();
+            dateParse.close();
+
+            System.out.println("new month = " + newMonth);
+            System.out.println("newday = " + newDay);
+            System.out.println("new year = " + newYear);
+
+            time = reader.next();
+            System.out.println("time = " + time);
+            name = reader.next();
+            desc = reader.next();
+            reader.nextLine();
+
+            Event event = new Event(newDay, newMonth, newYear, time, name, desc);
+
+            eventObjectList[i] = event;
+        }
+
+        reader.close();
+
+        return eventObjectList;
     }
 }
