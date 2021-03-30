@@ -1,7 +1,8 @@
 Date        Time    Name        Desc
-1/12/2021/	//1500	//Pizza Time	//Pick up pizza
-2/20/2021/	//1900   	//Attend Meeting	//Meet at 2272 PFT
-3/29/2021/	//1030	//Milestone 2	//Submit milestone 2 items
-8/12/2021/    //1500    //Kalob's fake Birthday   //Cookie cake pls
-8/17/2021/    //0    //Kalob's Birthday   //Cookie cake pls
-12/25/2021/    //0    //Merry Christmas   //Happy Holidays
+1/12/2021/	//1500	//Pizza Time	//Pick up pizza//
+2/20/2021/	//1900   	//Attend Meeting	//Meet at 2272 PFT//
+3/29/2021/    //809    //I wanna die   //this app sucks //
+3/29/2021/	//1030	//Milestone 2	//Submit milestone 2 items//
+8/12/2021/    //1500    //Kalob's fake Birthday   //Cookie cake pls//
+8/17/2021/    //0    //Kalob's Birthday   //Cookie cake pls//
+12/25/2021/    //0    //Merry Christmas   //Happy Holidays//
