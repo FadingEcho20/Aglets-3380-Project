@@ -15,7 +15,7 @@ public class NotesController
         {
 		return List.of
                 (
-			new Notes("LaSean")
+			new Notes("The Notes")
 		);
 	}
     
