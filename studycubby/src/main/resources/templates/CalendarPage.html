@@ -44,9 +44,10 @@
     <div id="Menu" style="position:fixed;">
 
         <p>Menu</p>
-        <div><a th:href="@{CalendarPage}">Calendar</a></div>
+        <div><a th:href="@{Calendar}">Calendar</a></div>
         <div><a th:href="@{Notespage}">Notes</a></div>
         <div><a th:href="@{Home Page example}">Home</a></div>
+        <div><a th:href="@{Create Event}">Create Event</a></div>
 
     </div>
     <!--Calendar Box-->
@@ -58,78 +59,139 @@
 
                 <div class="calendar_header">
                     <!--Calendar Title-->
-                    <h1 class="header_title">Welcome Back</h1>
-
-                    <p class="header_copy"> Calendar Plan</p>
+                    <h1 class="header_title">Calendar</h1>
 
                 </div>
 
-                <div class="calendar_plan">
-
-                    <div class="cl_plan">
-                        <!--Today's Date-->
-                        <div class="cl_title">Today</div>
-
-                        <div class="cl_copy">22nd April 2018</div>
-
-                        <div class="cl_add">
-                            <i class="fas fa-plus"></i>
-                        </div>
-
+                <div class="event_item">
+                    <div class="event_name"  th:with="text=${eventList[0].name}">
+                        <p th:text="${text}">
                     </div>
 
+                    <div class="event_desc"  th:with="text=${eventList[0].desc}">
+                        <p th:text="${text}">
+                    </div>
+
+                    <div class="event_time"  th:with="text=${eventList[0].time}">
+                        <li>
+                            Time: <span th:text="${text}"></span>
+                        </li>
+                        
+                    </div>
+
+                    <span class="event_date"  th:with="month=${eventList[0].month}, day=${eventList[0].day}, year=${eventList[0].year}">
+                        <li>
+                            <span th:text="${month}"></span>/
+                            <span th:text="${day}"></span>/
+                            <span th:text="${year}"></span>
+                        </li> 
+                    </span>
                 </div>
-                <!--Events-->
 
-                <div class="calendar_events">
-
-                    <p class="ce_title">Upcoming Events</p>
-
-                    <div class="event_item">
-                        <!-- Event 1-->
-
-                        <div class="ei_Dot dot_active"></div>
-
-                        <div class="ei_Title">10:30 am</div>
-
-                        <div class="ei_Copy">Monday briefing with the team</div>
-
-                    </div>
-                    <!-- Event 2-->
-                    <div class="event_item">
-
-                        <div class="ei_Dot"></div>
-
-                        <div class="ei_Title">12:00 pm</div>
-
-                        <div class="ei_Copy">Lunch for with the besties</div>
-
+                <div class="event_item">
+                    <div class="event_name"  th:with="text=${eventList[1].name}">
+                        <p th:text="${text}">
                     </div>
 
-                    <div class="event_item">
-                        <!-- Event 3-->
-                        <div class="ei_Dot"></div>
-
-                        <div class="ei_Title">13:00 pm</div>
-
-                        <div class="ei_Copy">Meet with the client for final design <br> @foofinder</div>
-
+                    <div class="event_desc"  th:with="text=${eventList[1].desc}">
+                        <p th:text="${text}">
                     </div>
 
-                    <div class="event_item">
-                        <!-- Event 4-->
-                        <div class="ei_Dot"></div>
-
-                        <div class="ei_Title">14:30 am</div>
-
-                        <div class="ei_Copy">Plan event night to inspire students</div>
-
+                    <div class="event_time"  th:with="text=${eventList[1].time}">
+                        <li>
+                            Time: <span th:text="${text}"></span>
+                        </li>
+                        
                     </div>
+
+                    <span class="event_date"  th:with="month=${eventList[1].month}, day=${eventList[1].day}, year=${eventList[1].year}">
+                        <li>
+                            <span th:text="${month}"></span>/
+                            <span th:text="${day}"></span>/
+                            <span th:text="${year}"></span>
+                        </li> 
+                    </span>
+                </div>
+
+                <div class="event_item">
+                    <div class="event_name"  th:with="text=${eventList[2].name}">
+                        <p th:text="${text}">
+                    </div>
+
+                    <div class="event_desc"  th:with="text=${eventList[2].desc}">
+                        <p th:text="${text}">
+                    </div>
+
+                    <div class="event_time"  th:with="text=${eventList[2].time}">
+                        <li>
+                            Time: <span th:text="${text}"></span>
+                        </li>
+                        
+                    </div>
+
+                    <span class="event_date"  th:with="month=${eventList[2].month}, day=${eventList[2].day}, year=${eventList[2].year}">
+                        <li>
+                            <span th:text="${month}"></span>/
+                            <span th:text="${day}"></span>/
+                            <span th:text="${year}"></span>
+                        </li> 
+                    </span>
+                </div>
+
+                <div class="event_item">
+                    <div class="event_name"  th:with="text=${eventList[3].name}">
+                        <p th:text="${text}">
+                    </div>
+
+                    <div class="event_desc"  th:with="text=${eventList[3].desc}">
+                        <p th:text="${text}">
+                    </div>
+
+                    <div class="event_time"  th:with="text=${eventList[3].time}">
+                        <li>
+                            Time: <span th:text="${text}"></span>
+                        </li>
+                        
+                    </div>
+
+                    <span class="event_date"  th:with="month=${eventList[3].month}, day=${eventList[3].day}, year=${eventList[3].year}">
+                        <li>
+                            <span th:text="${month}"></span>/
+                            <span th:text="${day}"></span>/
+                            <span th:text="${year}"></span>
+                        </li> 
+                    </span>
+                </div>
+
+                <div class="event_item">
+                    <div class="event_name"  th:with="text=${eventList[4].name}">
+                        <p th:text="${text}">
+                    </div>
+
+                    <div class="event_desc"  th:with="text=${eventList[4].desc}">
+                        <p th:text="${text}">
+                    </div>
+
+                    <div class="event_time"  th:with="text=${eventList[4].time}">
+                        <li>
+                            Time: <span th:text="${text}"></span>
+                        </li>
+                        
+                    </div>
+
+                    <span class="event_date"  th:with="month=${eventList[4].month}, day=${eventList[4].day}, year=${eventList[4].year}">
+                        <li>
+                            <span th:text="${month}"></span>/
+                            <span th:text="${day}"></span>/
+                            <span th:text="${year}"></span>
+                        </li> 
+                    </span>
+                </div>
+
                     <!--button to save-->
                     <div class="event_item">
 
                         <input type="button" id="bt" value="Add a new event" onclick="saveFile()" />
-                        <!-- Event 5-->
                         <div class="ei_Dot"></div>
 
                         <div class="ei_Title">15:30 am</div>
