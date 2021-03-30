@@ -1,3 +1,10 @@
+/**
+ * This is an interface to ensure that components which use it
+ * have the necessary methods to communicate with the server.
+ * 
+ * @author Kalob Morel
+ * @since 3/29/2021
+ */
 package com.project.studycubby.calendar;
 
 import java.io.FileNotFoundException;

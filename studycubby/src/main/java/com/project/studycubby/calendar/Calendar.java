@@ -254,8 +254,15 @@ public class Calendar implements calendarInterface
     }
 
     /**
-     * This method will read a list of events and export it for displaying on the website.
+     * This method reads the first five events from "Events.txt" and creates objects
+     * of the Event class. This is done by parsing the raw text and converting 
+     * it to different elements of the event object. They are written to their own 
+     * objects and then put into an array of objects of type, Event.
+     * 
      * @throws FileNotFoundException
+     * @author Kalob Morel
+     * @since 3/29/2021
+     * @return eventObjectList [Event[]] - array of event objects
      */
     public Event[] getList() throws FileNotFoundException
     {
