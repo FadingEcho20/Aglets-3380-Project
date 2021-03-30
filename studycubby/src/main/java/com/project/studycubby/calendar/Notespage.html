@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!-- created by Stephanie M. -->
+
+<!-- Credit for inspiration and help with https://eqdn.tech/html5-note-app-tutorial/
+    and https://www.w3schools.com/howto/howto_css_notes.asp -->
+
+<html xmlns:th="http://www.thymeleaf.org">
+    
+<html>
+    
+    <style> 
+        /* stops the notes textbox from being able to be resized */
+        .comment {
+            resize: none;
+        }
+    </style>
+    
+    <title>
+        Notes
+    </title>
+    
+<head>
+    
+    <script src="C:\Users\Stephanie\Desktop\Test\Aglets-3380-Project\studycubby\src\main\java\com\project\studycubby">
+    </script>
+    <link href="../static/css/StyleSheet.css" th:href="@{css/StyleSheet.css}" rel="stylesheet" media="screen">
+    <link href="../static/css/Notespage.css" th:href="@{css/Notespage.css}" rel="stylesheet" media="screen">
+	
+    <title>Study Cubby</title>
+    
+    <script lang="javascript">
+       //function that does the actual saving of the note to the desktop 
+        let saveFile = () => {
+    	
+        // Get the data from each element on the form.
+    	
+        var msg = document.getElementById('note');
+        
+        // This variable stores all the data.
+        let data =  msg.value;
+        
+        // Convert the text to BLOB.
+        const textToBLOB = new Blob([data], { type: 'text/plain' });
+        const sFileName = 'formData.txt';	   // The file to save the data.
+
+        let newLink = document.createElement("a");
+        newLink.download = sFileName;
+
+        if (window.webkitURL != null) 
+        {
+            newLink.href = window.webkitURL.createObjectURL(textToBLOB);
+        }
+        else 
+        {
+            newLink.href = window.URL.createObjectURL(textToBLOB);
+            newLink.style.display = "none";
+            document.body.appendChild(newLink);
+        }
+
+        newLink.click(); 
+    }
+    
+    </script>
+    
+</head>
+
+<body style="background-color: rgb(240, 213, 191);">
+    
+    <div id="Menu" style="position:fixed;">
+        
+       <p>Menu</p>
+       <div><a th:href="@{Calendar}">Calendar</a></div>
+       <div><a th:href="@{Notespage}">Notes</a></div>
+       <div><a th:href="@{Home Page example}">Home</a></div>
+    
+    </div>
+    
+    <div class="header">
+       <h1>Notes</h1> 
+    </div>
+ 
+    <div id="Body">
+      
+            
+             <div style="text-align: left;  padding-right: 5px" > 
+            
+            <!-- this text area helps to make the actual text box and formatting the size  -->
+            <textarea 
+                class="comment" 
+                id="note" 
+                name ="note" 
+                placeholder ="Write Notes Here" 
+                rows="30" cols="80" >
+        
+            </textarea>
+            
+            <!-- This labels the textbox and allows the user to have a title  -->
+            <input 
+                   type="text" 
+                   id="downloadlink" 
+                   placeholder ="Subject" />    
+            
+            <!-- This made the save button for the notes then has the onclick function
+                    so that it will call the saveFile() whne clicked -->
+            <input 
+                   type="button" 
+                   id="bt" 
+                   value ="Save" 
+                   onclick="saveFile()" />
+            
+            </div>
+            
+    </div>
+  
+</body>
+
+</html>

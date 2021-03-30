@@ -20,6 +20,7 @@ public class Calendar implements calendarInterface
      */
     public Calendar()
     {
+        //empty constructor to be used by controller
     }
     /**
      * This method  will receive the details of an event, then scan the events list to find out where to put it.
@@ -37,11 +38,11 @@ public class Calendar implements calendarInterface
     public void createEvent(String date, String time, String name, String desc) throws FileNotFoundException
     {
         //create file stream from Events.txt
-        File Events = new File("studycubby\\Events.txt");
+        File Events = new File("Events.txt");
         Scanner reader = new Scanner(Events).useDelimiter("//");
 
         //create file stream from tmpList.txt
-        File tmpList = new File("studycubby\\tmpList.txt");
+        File tmpList = new File("tmpList.txt");
 
         //compare date loop to find insert location - if date is same, compare time
         reader.nextLine();
@@ -116,7 +117,7 @@ public class Calendar implements calendarInterface
 
         try
         {
-            FileWriter tmpWriter = new FileWriter("studycubby\\tmpList.txt");
+            FileWriter tmpWriter = new FileWriter("tmpList.txt");
             for(int i = 1; i < lineNum; i++)
             {
              tmpWriter.write(copier1.nextLine() + "\n");
@@ -145,7 +146,7 @@ public class Calendar implements calendarInterface
 
         try
         {
-            FileWriter finalWriter = new FileWriter("studycubby\\Events.txt");
+            FileWriter finalWriter = new FileWriter("Events.txt");
 
             while(copier2.hasNext())
             {
@@ -176,7 +177,7 @@ public class Calendar implements calendarInterface
     public void deleteEvent(int id) throws FileNotFoundException
     {
         //create file stream from Events.txt
-        File Events = new File("studycubby\\Events.txt");
+        File Events = new File("Events.txt");
 
         //copy from original list to tmpList
         Scanner copier1 = new Scanner(Events);
@@ -184,7 +185,7 @@ public class Calendar implements calendarInterface
         try
         {
             //copy original list until
-            FileWriter tmpWriter = new FileWriter("studycubby\\tmpList.txt");
+            FileWriter tmpWriter = new FileWriter("tmpList.txt");
             for(int i = 1; i < id; i++)
             {
              tmpWriter.write(copier1.nextLine() + "\n");
@@ -209,14 +210,14 @@ public class Calendar implements calendarInterface
         copier1.close();
 
         //create file stream from tmpList.txt
-        File tmpList = new File("studycubby\\tmpList.txt");
+        File tmpList = new File("tmpList.txt");
 
         //overwrite original list with tmpList
         Scanner copier2 = new Scanner(tmpList);
 
         try
         {
-            FileWriter finalWriter = new FileWriter("studycubby\\Events.txt");
+            FileWriter finalWriter = new FileWriter("Events.txt");
 
             while(copier2.hasNext())
             {
@@ -261,7 +262,7 @@ public class Calendar implements calendarInterface
         Event[] eventObjectList = new Event[5];
 
         //create file stream from Events.txt
-        File Events = new File("studycubby\\Events.txt");
+        File Events = new File("Events.txt");
         Scanner reader = new Scanner(Events).useDelimiter("//");
         reader.nextLine();
 

@@ -1,0 +1,60 @@
+<!-- Developed by: LaSean S. -->
+
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    
+   <link href="../static/css/Button.css" th:href="@{css/Button.css}" rel="stylesheet" media="screen">
+   <link href="../static/css/StyleSheet.css" th:href="@{css/StyleSheet.css}" rel="stylesheet" media="screen">
+	
+   <title>Study Session Time</title>
+</head>
+
+<body style="background-color: rgb(240, 213, 191);">
+
+    <div id="Menu" style="position:fixed;">
+        
+        <p>Menu</p>
+        
+        <div><a th:href="@{Calendar}">Calendar</a></div>
+        <div><a th:href="@{Notespage}">Notes</a></div>
+        <div><a th:href="@{Home Page example}">Home</a></div>
+    
+    </div>
+
+    <div id="Header">
+        
+      <p style=
+         "position:absolute; 
+        left:750px; 
+        top:50px; 
+        text-align: center;
+        font-family:'Lucida Sans'; 
+        font-size:30px">
+        Select a Session Style!
+      </p>
+      
+    </div>
+
+    <!-- These links send the user to the appropriate html page, 
+    so that they can pick a session length of the intended type -->
+    <div id="Mini Button" style = "position:absolute; left:850px; top:200px">
+        
+      <a th:href="@{MiniSessionTimes}" 
+         class="button">Mini Session
+      </a>
+        
+    </div>
+
+    <div id="Deep Button" style = "position:absolute; left:850px; top:400px">
+        
+      <a th:href="@{DeepSessionTimes}" 
+         class="button">Deep Session
+      </a>
+        
+    </div>
+
+</body>
+
+</html>
